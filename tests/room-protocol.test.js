@@ -53,10 +53,10 @@ test('the validator is not decorative — it rejects a broken room', () => {
   const { valid, errors } = validate(schema, broken);
   assert.ok(!valid, 'broken room must not validate');
   assert.ok(errors.length >= 4, `expected >=4 errors, got ${errors.length}: ${errors.join('; ')}`);
-  assert.ok(errors.some((e) => e.includes('"protocol"')), 'const violation on protocol');
-  assert.ok(errors.some((e) => e.includes('"kind"')), 'const violation on room.kind');
-  assert.ok(errors.some((e) => e.includes('canonHash') || e.includes('/hash')), 'pattern violation on canon hash');
-  assert.ok(errors.some((e) => e.includes('"free"')), 'const violation on writes.free');
+  assert.ok(errors.some((e) => e.includes('room-protocol/1')), 'const violation on protocol');
+  assert.ok(errors.some((e) => e.includes('settled-triangle')), 'const violation on room.kind');
+  assert.ok(errors.some((e) => e.includes('/hash')), 'pattern violation on canon hash');
+  assert.ok(errors.some((e) => e.includes('expected const false')), 'const violation on writes.free');
 });
 
 // ── 2. fixture trace — hash-check inputs ────────────────────────────────
@@ -173,7 +173,8 @@ test('naming law: the third-order readout is TORSION; twist-shear is a separate 
   assert.strictEqual(lineageSurface.gestureReadouts.instrument, 'torsion');
   const ro = lineageSurface.gestureReadouts;
   for (const row of ro.rounds) assert.ok(!('twist' in row), 'no readout row may carry a "twist" key');
-  assert.ok(!('twist' in ro.full ?? {}), 'no full-walk "twist" key');
+  assert.ok(!('twist' in ro.gap), 'no gap readout may carry a "twist" key');
+  assert.ok(!('full' in ro), 'schema forbids extra readout keys (additionalProperties:false)');
   const ids = room.instruments.map((i) => i.id);
   assert.ok(ids.includes('torsion'), 'torsion instrument declared');
   assert.ok(ids.includes('twist-shear'), 'twist-shear instrument declared as the boundary marker');
