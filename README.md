@@ -46,7 +46,11 @@ labeled with their live issue URLs. Seven **Choir** bells ring on the horizon,
 one per commensuration tooth. The sky is the canon: sixteen stars fixed at
 hash `0x445185a3a99fd2e7`'s digits. Across it, one **candor line** — the
 current week of a live room through the twist instrument. The strain is
-visible before you read a word.
+visible before you read a word. Docked at the right edge, **the gesture
+panel** reads the rescued walk third-order — arc, bend, torsion, and
+planarity round by round (vendored gesture-kit; see
+[`docs/GESTURE-NOTES.md`](docs/GESTURE-NOTES.md)) — and prints whether the
+third-order instrument corroborates the walk's HONEST GAP at r7.
 
 ## The data (read this before trusting the map)
 
@@ -77,12 +81,15 @@ Honest gaps, per doctrine:
 npm test    # node --test, no DOM, no deps
 ```
 
-14 checks: every fixture parses and is provenance-covered; the ledger law
+22 checks: every fixture parses and is provenance-covered; the ledger law
 (grounded or absent — every ridge cites real transcript lines); ridge heights
 monotonic in strength; citation paths summit→turn; whirlpool coordinates match
 the real issue list; stars = 16 canon digits; the lattice is an integer grid;
 the choir rings 7 bells; the understory carries an 8-round HONEST GAP walk;
-the candor line's strain concentrates and recovers.
+the candor line's strain concentrates and recovers; the gesture panel's
+per-round readouts are cumulative, deterministic, match the vendored
+instrument computed independently, and the r7 planarity corroboration is
+measured, not asserted (docs/GESTURE-NOTES.md).
 
 ## Doctrine
 
