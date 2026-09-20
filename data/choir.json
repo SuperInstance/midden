@@ -1,34 +1,43 @@
 {
-  "source": "quilt-studio packages/quilt-floor/src/golden.mjs convergentGaps(8) @ 5821ebf0b4c30d45559a076a97aa76a8693d6f32",
-  "note": "The 7 teeth of the Twist engine commensuration comb: convergent gaps of the golden direction, F(n+1)/F(n)·360° vs 360°·φ, in degrees. The dream says ~0.75° apart — that is the fine-ladder spacing scale; the real teeth below are exact code output, not the approximation.",
+  "source": "midden tools/gen-choir.mjs — exact rational commensuration comb, verified by the vendored Stern–Brocot instrument (SuperInstance/quilt-studio @5821ebf0b4c30d45559a076a97aa76a8693d6f32)",
+  "note": "The 7 teeth of the commensuration comb, retuned exact. Tooth n rings the (n−1)-th supercell revival of the 480-fold supercell: exact rational angle 3(n−1)/4 degrees = (n−1)/480 of a turn. Spacing exactly 0.75° — the dream's \"~0.75° apart\" made exact; every tooth exactly commensurate (error 0, not within tolerance). All teeth inside the twist instrument's honest regime 0.15°–6.0°. Regenerate: node tools/gen-choir.mjs",
+  "supercell": 480,
+  "spacing_degrees": 0.75,
   "teeth": [
     {
       "n": 2,
-      "degrees": 137.50776405003785
+      "turns": "1/480",
+      "degrees": 0.75
     },
     {
       "n": 3,
-      "degrees": -42.49223594996215
+      "turns": "1/240",
+      "degrees": 1.5
     },
     {
       "n": 4,
-      "degrees": 17.50776405003785
+      "turns": "1/160",
+      "degrees": 2.25
     },
     {
       "n": 5,
-      "degrees": -6.492235949962151
+      "turns": "1/120",
+      "degrees": 3
     },
     {
       "n": 6,
-      "degrees": 2.5077640500378493
+      "turns": "1/96",
+      "degrees": 3.75
     },
     {
       "n": 7,
-      "degrees": -0.9537744115006035
+      "turns": "1/80",
+      "degrees": 4.5
     },
     {
       "n": 8,
-      "degrees": 0.3649069071807389
+      "turns": "7/480",
+      "degrees": 5.25
     }
   ]
 }
