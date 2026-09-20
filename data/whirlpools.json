@@ -1,0 +1,46 @@
+{
+  "source": "fleet canon lint sweep 2026-09-20 — unACKed canon edges (the Drown)",
+  "note": "Each entry is a REAL open issue filed by the lint sweep. owed_by lacks an ACK = undertow in the low ground.",
+  "whirlpools": [
+    {
+      "id": "duke-lab#4",
+      "repo": "SuperInstance/duke-lab",
+      "issue": 4,
+      "url": "https://github.com/SuperInstance/duke-lab/issues/4",
+      "title": "canon: owed_by lacks hermit (canon-stub)",
+      "edge": { "from": "hermit", "to": "duke-lab" },
+      "state": "OPEN",
+      "kind": "owed_by missing"
+    },
+    {
+      "id": "tidepool#4",
+      "repo": "SuperInstance/tidepool",
+      "issue": 4,
+      "url": "https://github.com/SuperInstance/tidepool/issues/4",
+      "title": "canon: owed_by lacks duke-lab and quilt",
+      "edge": { "from": "duke-lab", "to": "tidepool" },
+      "state": "OPEN",
+      "kind": "owed_by missing"
+    },
+    {
+      "id": "tidepool#4-quilt",
+      "repo": "SuperInstance/tidepool",
+      "issue": 4,
+      "url": "https://github.com/SuperInstance/tidepool/issues/4",
+      "title": "canon: owed_by lacks duke-lab and quilt",
+      "edge": { "from": "quilt", "to": "tidepool" },
+      "state": "OPEN",
+      "kind": "owed_by missing"
+    },
+    {
+      "id": "quilt-canon-cli#4",
+      "repo": "SuperInstance/quilt-canon-cli",
+      "issue": 4,
+      "url": "https://github.com/SuperInstance/quilt-canon-cli/issues/4",
+      "title": "canon drift: hermit owed_by empty — quilt + duke-lab unACKed (hermit issues disabled)",
+      "edge": { "from": "quilt", "to": "hermit" },
+      "state": "OPEN",
+      "kind": "owed_by empty (issues disabled on target)"
+    }
+  ]
+}

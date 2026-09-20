@@ -1,0 +1,8 @@
+{
+  "source": "the fleet canon — sandbox proof replayed in exactly 152,580 steps",
+  "canonHash": "0x445185a3a99fd2e7",
+  "note": "Stars are fixed at the canon hash's hex digits. The sky is the canon: navigation error is impossible; you can always recompute where you are.",
+  "digits": ["4", "4", "5", "1", "8", "5", "a", "3", "a", "9", "9", "f", "d", "2", "e", "7"],
+  "digitValues": [4, 4, 5, 1, 8, 5, 10, 3, 10, 9, 9, 15, 13, 2, 14, 7],
+  "starCount": 16
+}

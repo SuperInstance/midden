@@ -1,0 +1,320 @@
+{
+  "generatedBy": "node -e: real breed() + chain() from q16-trajectories PR #1 branch",
+  "source": "SuperInstance/q16-trajectories @ lane-n-q16-bridge bfd7ee8 (src/breed.js, src/lineage.js)",
+  "note": "the walk duke-lab throws away, kept: one exact-integer point per round in Q^16",
+  "seed": "q16/midden-at-dusk",
+  "artist": "duke",
+  "persona": "purist",
+  "verdict": {
+    "status": "HONEST GAP",
+    "round": 7,
+    "sigma": 0.11847104064430357,
+    "residue": [
+      "trebleActivity",
+      "callReply",
+      "dynContour",
+      "swingFeel",
+      "density",
+      "restRatio",
+      "chromaticism",
+      "repetition",
+      "syncopation",
+      "phraseVariance",
+      "registerSpread",
+      "cadenceRegular"
+    ]
+  },
+  "nRounds": 8,
+  "featuresOrder": [
+    "registerSpread",
+    "trebleActivity",
+    "dynRange",
+    "dynContour",
+    "swingFeel",
+    "syncopation",
+    "downbeatWeight",
+    "harmonicComplex",
+    "chromaticism",
+    "repetition",
+    "callReply",
+    "density",
+    "phraseVariance",
+    "restRatio",
+    "bassMovement",
+    "cadenceRegular"
+  ],
+  "start": {
+    "round": 0,
+    "point": [
+      916667,
+      15975,
+      207173,
+      14048,
+      500000,
+      794539,
+      551519,
+      820313,
+      985625,
+      167720,
+      23413,
+      1000000,
+      485714,
+      0,
+      939225,
+      900000
+    ],
+    "sigma": 0.1721
+  },
+  "final": {
+    "round": 7,
+    "point": [
+      783333,
+      44504,
+      418930,
+      64918,
+      500000,
+      1000000,
+      550259,
+      820313,
+      1000000,
+      218271,
+      108197,
+      1000000,
+      571429,
+      0,
+      835089,
+      650000
+    ],
+    "sigma": 0.1185
+  },
+  "trajectory": [
+    {
+      "round": 0,
+      "point": [
+        916667,
+        15975,
+        207173,
+        14048,
+        500000,
+        794539,
+        551519,
+        820313,
+        985625,
+        167720,
+        23413,
+        1000000,
+        485714,
+        0,
+        939225,
+        900000
+      ],
+      "sigma": 0.1721,
+      "persona": "purist"
+    },
+    {
+      "round": 1,
+      "point": [
+        883333,
+        31501,
+        407639,
+        75784,
+        500000,
+        934473,
+        521814,
+        820313,
+        1000000,
+        236451,
+        126306,
+        1000000,
+        542857,
+        0,
+        900850,
+        650000
+      ],
+      "sigma": 0.1156,
+      "persona": "purist"
+    },
+    {
+      "round": 2,
+      "point": [
+        775000,
+        19048,
+        410485,
+        45939,
+        500000,
+        943125,
+        490724,
+        820313,
+        1000000,
+        198650,
+        76565,
+        1000000,
+        542857,
+        0,
+        856122,
+        650000
+      ],
+      "sigma": 0.1237,
+      "persona": "purist"
+    },
+    {
+      "round": 3,
+      "point": [
+        766667,
+        37900,
+        442994,
+        81531,
+        500000,
+        931342,
+        562629,
+        820313,
+        1000000,
+        147205,
+        135885,
+        1000000,
+        514286,
+        0,
+        825523,
+        700000
+      ],
+      "sigma": 0.1218,
+      "persona": "purist"
+    },
+    {
+      "round": 4,
+      "point": [
+        733333,
+        12500,
+        468220,
+        63170,
+        500000,
+        990625,
+        605355,
+        820313,
+        971875,
+        182737,
+        105283,
+        1000000,
+        542857,
+        0,
+        840342,
+        650000
+      ],
+      "sigma": 0.1203,
+      "persona": "purist"
+    },
+    {
+      "round": 5,
+      "point": [
+        933333,
+        31349,
+        471217,
+        90567,
+        500000,
+        962857,
+        563022,
+        820313,
+        998750,
+        192261,
+        150946,
+        1000000,
+        542857,
+        0,
+        889130,
+        750000
+      ],
+      "sigma": 0.1144,
+      "persona": "purist"
+    },
+    {
+      "round": 6,
+      "point": [
+        866667,
+        25150,
+        482971,
+        64776,
+        500000,
+        971161,
+        591275,
+        820313,
+        971875,
+        171864,
+        107961,
+        1000000,
+        542857,
+        0,
+        797162,
+        750000
+      ],
+      "sigma": 0.1151,
+      "persona": "purist"
+    },
+    {
+      "round": 7,
+      "point": [
+        783333,
+        44504,
+        418930,
+        64918,
+        500000,
+        1000000,
+        550259,
+        820313,
+        1000000,
+        218271,
+        108197,
+        1000000,
+        571429,
+        0,
+        835089,
+        650000
+      ],
+      "sigma": 0.1185,
+      "persona": "purist"
+    }
+  ],
+  "ancestry": [
+    {
+      "from": 0,
+      "to": 1,
+      "driftQ": 1012218,
+      "sigmaDrop": 0.05650000000000001
+    },
+    {
+      "from": 1,
+      "to": 2,
+      "driftQ": 325489,
+      "sigmaDrop": -0.00810000000000001
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "driftQ": 398909,
+      "sigmaDrop": 0.001899999999999999
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "driftQ": 391979,
+      "sigmaDrop": 0.0015000000000000013
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "driftQ": 550194,
+      "sigmaDrop": 0.0059000000000000025
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "driftQ": 329192,
+      "sigmaDrop": -0.0006999999999999923
+    },
+    {
+      "from": 6,
+      "to": 7,
+      "driftQ": 477993,
+      "sigmaDrop": -0.0034000000000000002
+    }
+  ]
+}

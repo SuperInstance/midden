@@ -1,0 +1,34 @@
+{
+  "source": "quilt-studio packages/quilt-floor/src/golden.mjs convergentGaps(8) @ 5821ebf0b4c30d45559a076a97aa76a8693d6f32",
+  "note": "The 7 teeth of the Twist engine commensuration comb: convergent gaps of the golden direction, F(n+1)/F(n)·360° vs 360°·φ, in degrees. The dream says ~0.75° apart — that is the fine-ladder spacing scale; the real teeth below are exact code output, not the approximation.",
+  "teeth": [
+    {
+      "n": 2,
+      "degrees": 137.50776405003785
+    },
+    {
+      "n": 3,
+      "degrees": -42.49223594996215
+    },
+    {
+      "n": 4,
+      "degrees": 17.50776405003785
+    },
+    {
+      "n": 5,
+      "degrees": -6.492235949962151
+    },
+    {
+      "n": 6,
+      "degrees": 2.5077640500378493
+    },
+    {
+      "n": 7,
+      "degrees": -0.9537744115006035
+    },
+    {
+      "n": 8,
+      "degrees": 0.3649069071807389
+    }
+  ]
+}

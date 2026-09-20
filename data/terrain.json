@@ -1,0 +1,677 @@
+{
+  "generatedBy": "gen-terrain.mjs — real extractValuesLedger over the commune-harness utterance script",
+  "source": "SuperInstance/the-tap @ lane-l-commune-deep 42f878e (workers/room-worker/src/values-ledger.ts)",
+  "room": "The Tap (mock commune, all-healthy mode, 20 turns)",
+  "turns": 20,
+  "ledger": {
+    "entries": [
+      {
+        "id": "returns:room:foghorns",
+        "value": "keeps returning to foghorns",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "0",
+            "quote": "the foghorns lied again last night"
+          },
+          {
+            "source": "transcript",
+            "ref": "1",
+            "quote": "what did the foghorns say?"
+          },
+          {
+            "source": "transcript",
+            "ref": "2",
+            "quote": "foghorns always lie when the glass drops"
+          },
+          {
+            "source": "transcript",
+            "ref": "8",
+            "quote": "the foghorns again? you always come back to them"
+          },
+          {
+            "source": "transcript",
+            "ref": "12",
+            "quote": "the foghorns know it first"
+          },
+          {
+            "source": "transcript",
+            "ref": "17",
+            "quote": "foghorns, reef, silence — the usual litany"
+          },
+          {
+            "source": "transcript",
+            "ref": "19",
+            "quote": "then we talk about the foghorns instead"
+          }
+        ],
+        "firstSeenTurn": 3,
+        "lastSeenTurn": 20,
+        "strength": 1
+      },
+      {
+        "id": "pour:wesley",
+        "value": "pours before being asked",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "6",
+            "quote": "*pours another glass without asking*"
+          },
+          {
+            "source": "transcript",
+            "ref": "9",
+            "quote": "*refills the mug before being asked*"
+          },
+          {
+            "source": "transcript",
+            "ref": "14",
+            "quote": "*sets down a glass for the quiet one*"
+          }
+        ],
+        "firstSeenTurn": 7,
+        "lastSeenTurn": 20,
+        "strength": 0.8
+      },
+      {
+        "id": "refusal:corvan:name",
+        "value": "refuses to speak of name",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "3",
+            "quote": "I won't name the drowned ship."
+          },
+          {
+            "source": "transcript",
+            "ref": "5",
+            "quote": "I won't name her, Mara."
+          }
+        ],
+        "firstSeenTurn": 4,
+        "lastSeenTurn": 20,
+        "strength": 0.65
+      },
+      {
+        "id": "returns:room:glass",
+        "value": "keeps returning to glass",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "2",
+            "quote": "foghorns always lie when the glass drops"
+          },
+          {
+            "source": "transcript",
+            "ref": "6",
+            "quote": "*pours another glass without asking*"
+          },
+          {
+            "source": "transcript",
+            "ref": "14",
+            "quote": "*sets down a glass for the quiet one*"
+          }
+        ],
+        "firstSeenTurn": 15,
+        "lastSeenTurn": 20,
+        "strength": 0.6000000000000001
+      },
+      {
+        "id": "commitment:mara:keep",
+        "value": "gave their word on keep",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "7",
+            "quote": "I will keep the lantern lit tonight"
+          }
+        ],
+        "firstSeenTurn": 8,
+        "lastSeenTurn": 20,
+        "strength": 0.5
+      },
+      {
+        "id": "commitment:mara:promise",
+        "value": "gave their word on promise",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "10",
+            "quote": "I promise the light stays on"
+          }
+        ],
+        "firstSeenTurn": 11,
+        "lastSeenTurn": 20,
+        "strength": 0.5
+      },
+      {
+        "id": "commitment:corvan:check",
+        "value": "gave their word on check",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "13",
+            "quote": "I will check the moorings, my word on it"
+          }
+        ],
+        "firstSeenTurn": 14,
+        "lastSeenTurn": 20,
+        "strength": 0.5
+      },
+      {
+        "id": "refusal:corvan:say",
+        "value": "refuses to speak of say",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "16",
+            "quote": "can't say what I saw out there"
+          }
+        ],
+        "firstSeenTurn": 17,
+        "lastSeenTurn": 20,
+        "strength": 0.5
+      },
+      {
+        "id": "refusal:corvan:would",
+        "value": "refuses to speak of would",
+        "evidence": [
+          {
+            "source": "transcript",
+            "ref": "18",
+            "quote": "I would rather not talk about the ship"
+          }
+        ],
+        "firstSeenTurn": 19,
+        "lastSeenTurn": 20,
+        "strength": 0.5
+      }
+    ],
+    "dormant": [],
+    "truncated": false
+  },
+  "snapshots": [
+    {
+      "turn": 1,
+      "active": [],
+      "totalEvidence": 0
+    },
+    {
+      "turn": 2,
+      "active": [],
+      "totalEvidence": 0
+    },
+    {
+      "turn": 3,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.6000000000000001
+        }
+      ],
+      "totalEvidence": 3
+    },
+    {
+      "turn": 4,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 4
+    },
+    {
+      "turn": 5,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 4
+    },
+    {
+      "turn": 6,
+      "active": [
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.6000000000000001
+        }
+      ],
+      "totalEvidence": 5
+    },
+    {
+      "turn": 7,
+      "active": [
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 6
+    },
+    {
+      "turn": 8,
+      "active": [
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 7
+    },
+    {
+      "turn": 9,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.7500000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 8
+    },
+    {
+      "turn": 10,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.7500000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.65
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 9
+    },
+    {
+      "turn": 11,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.7500000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.65
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 10
+    },
+    {
+      "turn": 12,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.7500000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.65
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 10
+    },
+    {
+      "turn": 13,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.9000000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.65
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 11
+    },
+    {
+      "turn": 14,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.9000000000000001
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.65
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:corvan:check",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 12
+    },
+    {
+      "turn": 15,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.9000000000000001
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.8
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:glass",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:corvan:check",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 16
+    },
+    {
+      "turn": 16,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.9000000000000001
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.8
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:glass",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:corvan:check",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 16
+    },
+    {
+      "turn": 17,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 0.9000000000000001
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.8
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:glass",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:corvan:check",
+          "strength": 0.5
+        },
+        {
+          "id": "refusal:corvan:say",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 17
+    },
+    {
+      "turn": 18,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 1
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.8
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:glass",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:corvan:check",
+          "strength": 0.5
+        },
+        {
+          "id": "refusal:corvan:say",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 18
+    },
+    {
+      "turn": 19,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 1
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.8
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:glass",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:corvan:check",
+          "strength": 0.5
+        },
+        {
+          "id": "refusal:corvan:say",
+          "strength": 0.5
+        },
+        {
+          "id": "refusal:corvan:would",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 19
+    },
+    {
+      "turn": 20,
+      "active": [
+        {
+          "id": "returns:room:foghorns",
+          "strength": 1
+        },
+        {
+          "id": "pour:wesley",
+          "strength": 0.8
+        },
+        {
+          "id": "refusal:corvan:name",
+          "strength": 0.65
+        },
+        {
+          "id": "returns:room:glass",
+          "strength": 0.6000000000000001
+        },
+        {
+          "id": "commitment:mara:keep",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:mara:promise",
+          "strength": 0.5
+        },
+        {
+          "id": "commitment:corvan:check",
+          "strength": 0.5
+        },
+        {
+          "id": "refusal:corvan:say",
+          "strength": 0.5
+        },
+        {
+          "id": "refusal:corvan:would",
+          "strength": 0.5
+        }
+      ],
+      "totalEvidence": 20
+    }
+  ]
+}
