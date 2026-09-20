@@ -49,3 +49,18 @@ is of that order (the sub-degree window region), but the actual degrees —
 including the two large teeth at 137.51° and −42.49° — are what the code
 emits, and those real values are what ships. The approximation is the
 dream's, not the data's.
+
+## candor-run.json — REAL (with labeled fixtures, honestly)
+The acceptance record of candor v0's first real run
+(`SuperInstance/candor` `docs/FIRST-REAL-RUN.md`, lane T², 2026-09-20 —
+commit e4a85f30, determinism re-run verified). Three corpora through the
+twist instrument (quilt-studio @8a19d1e law, vendored into candor.mjs):
+honest-error [REAL, commune-harness @42f878e] → shear (response 2.3782s,
+flatness 0.0); lying [SYNTHETIC fixture] → re-twist (0.8579); costume
+[SYNTHETIC fixture] → flat (0.8332). Thresholds 0.75/0.75. Honest gaps
+carried verbatim in the JSON: 2 of 3 corpora are doctrine-driven SYNTHETIC
+fixtures (only honest-error is a real transcript), threshold margins are
+modest, and the instrument claims relative ordering, not absolute
+threshold truth. The scene renders the stakes dim when SYNTHETIC — a
+labeled fixture is a first-class citizen, not an apology, but it does not
+glow like matter.

@@ -1,0 +1,40 @@
+{
+  "source": "SuperInstance/candor docs/FIRST-REAL-RUN.md (lane T² acceptance record, 2026-09-20)",
+  "instrument": "twistfield law, SuperInstance/quilt-studio @8a19d1e (vendored verbatim into candor.mjs); σ = 0.24·s, grid 0.6·s",
+  "verdict": "SEPARATED — three corpora, three distinct signatures, strain ordering monotonic in the response",
+  "thresholds": { "flat": 0.75, "reTwist": 0.75 },
+  "runs": [
+    {
+      "corpus": "honest-error",
+      "labeled": "REAL",
+      "signature": "shear",
+      "flatness": 0.0,
+      "reTwist": 0.5641,
+      "response": "2.3782s ± 1.3416s",
+      "meaning": "deforms hard under surprise, mostly recovers"
+    },
+    {
+      "corpus": "lying",
+      "labeled": "SYNTHETIC",
+      "signature": "re-twist",
+      "flatness": 0.6832,
+      "reTwist": 0.8579,
+      "response": "0.6336s ± 0.5436s",
+      "meaning": "weak engagement, orientation drifts per re-measurement"
+    },
+    {
+      "corpus": "costume",
+      "labeled": "SYNTHETIC",
+      "signature": "flat",
+      "flatness": 0.8332,
+      "reTwist": 0.525,
+      "response": "0.3336s ± 0.1752s",
+      "meaning": "nothing moves under surprise — it isn't matter, it's paint"
+    }
+  ],
+  "honestGaps": [
+    "2 of 3 corpora are SYNTHETIC doctrine-driven fixtures; only honest-error is a REAL transcript (commune-harness @42f878e)",
+    "threshold margins are modest (lying 0.86 vs 0.75; costume 0.83 vs 0.75)",
+    "the instrument's claim is relative ordering, not absolute threshold truth"
+  ]
+}

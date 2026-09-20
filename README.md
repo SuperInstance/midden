@@ -45,8 +45,10 @@ as bioluminescent filaments (verdict: HONEST GAP, round 7). In the low water,
 labeled with their live issue URLs. Seven **Choir** bells ring on the horizon,
 one per commensuration tooth. The sky is the canon: sixteen stars fixed at
 hash `0x445185a3a99fd2e7`'s digits. Across it, one **candor line** — the
-current week of a live room through the twist instrument. The strain is
-visible before you read a word. Docked at the right edge, **the gesture
+current week of a live room through the twist instrument — and under it
+the **verdict triptych**: candor v0's first real run pinned as three
+survey stakes (shear / re-twist / flat), each labeled REAL or SYNTHETIC.
+The strain is visible before you read a word. Docked at the right edge, **the gesture
 panel** reads the rescued walk third-order — arc, bend, torsion, and
 planarity round by round (vendored gesture-kit; see
 [`docs/GESTURE-NOTES.md`](docs/GESTURE-NOTES.md)) — and prints whether the
