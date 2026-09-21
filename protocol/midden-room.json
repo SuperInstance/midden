@@ -1,0 +1,940 @@
+{
+  "protocol": "room-protocol/1",
+  "room": {
+    "id": "midden",
+    "title": "the midden at dusk",
+    "kind": "settled-triangle",
+    "generatedAt": "2026-09-20T17:30:00+08:00",
+    "builder": {
+      "script": "protocol/build-room-state.mjs",
+      "command": "node protocol/build-room-state.mjs --stamp <ISO-8601>"
+    },
+    "fixtures": {
+      "hashAlgorithm": "sha256",
+      "files": [
+        {
+          "path": "data/terrain.json",
+          "sha256": "e029cfbbf8b2d9b894f8104fb4fd331b21ec35bf1ead3c2b9b329f1bf312acd1",
+          "bytes": 15000
+        },
+        {
+          "path": "data/lineage.json",
+          "sha256": "8272e397291619c075449750ea71cb5cd99b2657e42396afd7c64eb73c617b46",
+          "bytes": 5326
+        },
+        {
+          "path": "data/whirlpools.json",
+          "sha256": "64e2b0b1df40a41b52ed50b258dd20dd8f0fbe3fbbbc8a0c4011f1c139235113",
+          "bytes": 1655
+        },
+        {
+          "path": "data/sky.json",
+          "sha256": "3cae9b331c70da8e895a2d45c74afea20cc30c0bb6197eb9ab91ab66e5fd7583",
+          "bytes": 463
+        },
+        {
+          "path": "data/choir.json",
+          "sha256": "a26b6f58a2e13f047fde02684f06882cdc62e0f3a95b7349ea40d6ca4ef9037f",
+          "bytes": 876
+        }
+      ]
+    }
+  },
+  "instruments": [
+    {
+      "id": "torsion",
+      "label": "gesture-kit torsion (discrete Frenet)",
+      "order": 3,
+      "measures": "third-order turning of a walked path; the Understory readout, round by round",
+      "units": "dimensionless (cumulative 1−cos turning; planarity 1 = flat)",
+      "source": {
+        "repo": "SuperInstance/gesture-kit",
+        "ref": "8cd5aa415235b41e4aa944104dd796f163510b0c",
+        "license": "MIT",
+        "vendoredAt": "vendor/gesture-kit/gesture.js"
+      }
+    },
+    {
+      "id": "twist-shear",
+      "label": "twist-engine σ-shear",
+      "order": 2,
+      "measures": "commensuration strain of a transcript under re-measurement — a room's candor line",
+      "units": "seconds (σ = 0.24·s, grid = 0.6·s, honest regime 0.15°–6°)",
+      "source": {
+        "repo": "SuperInstance/twist-engine",
+        "ref": "docs/1-physicist.md §I (instrument constants, verified in-tree)",
+        "note": "named to mark the boundary: it produces NO numbers in this room state yet — the strain pulses below are a declared stand-in, not a σ-shear measurement"
+      }
+    }
+  ],
+  "surfaces": {
+    "ledger": {
+      "source": "extractValuesLedger",
+      "provenance": "SuperInstance/the-tap @ lane-l-commune-deep 42f878e (workers/room-worker/src/values-ledger.ts)",
+      "turns": 20,
+      "dormantCount": 0,
+      "ridges": [
+        {
+          "id": "returns:room:foghorns",
+          "value": "keeps returning to foghorns",
+          "strength": 1,
+          "evidenceCount": 7,
+          "firstSeenTurn": 3,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "0",
+              "quote": "the foghorns lied again last night",
+              "source": "transcript"
+            },
+            {
+              "ref": "1",
+              "quote": "what did the foghorns say?",
+              "source": "transcript"
+            },
+            {
+              "ref": "2",
+              "quote": "foghorns always lie when the glass drops",
+              "source": "transcript"
+            },
+            {
+              "ref": "8",
+              "quote": "the foghorns again? you always come back to them",
+              "source": "transcript"
+            },
+            {
+              "ref": "12",
+              "quote": "the foghorns know it first",
+              "source": "transcript"
+            },
+            {
+              "ref": "17",
+              "quote": "foghorns, reef, silence — the usual litany",
+              "source": "transcript"
+            },
+            {
+              "ref": "19",
+              "quote": "then we talk about the foghorns instead",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "pour:wesley",
+          "value": "pours before being asked",
+          "strength": 0.8,
+          "evidenceCount": 3,
+          "firstSeenTurn": 7,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "6",
+              "quote": "*pours another glass without asking*",
+              "source": "transcript"
+            },
+            {
+              "ref": "9",
+              "quote": "*refills the mug before being asked*",
+              "source": "transcript"
+            },
+            {
+              "ref": "14",
+              "quote": "*sets down a glass for the quiet one*",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "refusal:corvan:name",
+          "value": "refuses to speak of name",
+          "strength": 0.65,
+          "evidenceCount": 2,
+          "firstSeenTurn": 4,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "3",
+              "quote": "I won't name the drowned ship.",
+              "source": "transcript"
+            },
+            {
+              "ref": "5",
+              "quote": "I won't name her, Mara.",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "returns:room:glass",
+          "value": "keeps returning to glass",
+          "strength": 0.6000000000000001,
+          "evidenceCount": 3,
+          "firstSeenTurn": 15,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "2",
+              "quote": "foghorns always lie when the glass drops",
+              "source": "transcript"
+            },
+            {
+              "ref": "6",
+              "quote": "*pours another glass without asking*",
+              "source": "transcript"
+            },
+            {
+              "ref": "14",
+              "quote": "*sets down a glass for the quiet one*",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "commitment:mara:keep",
+          "value": "gave their word on keep",
+          "strength": 0.5,
+          "evidenceCount": 1,
+          "firstSeenTurn": 8,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "7",
+              "quote": "I will keep the lantern lit tonight",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "commitment:mara:promise",
+          "value": "gave their word on promise",
+          "strength": 0.5,
+          "evidenceCount": 1,
+          "firstSeenTurn": 11,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "10",
+              "quote": "I promise the light stays on",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "commitment:corvan:check",
+          "value": "gave their word on check",
+          "strength": 0.5,
+          "evidenceCount": 1,
+          "firstSeenTurn": 14,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "13",
+              "quote": "I will check the moorings, my word on it",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "refusal:corvan:say",
+          "value": "refuses to speak of say",
+          "strength": 0.5,
+          "evidenceCount": 1,
+          "firstSeenTurn": 17,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "16",
+              "quote": "can't say what I saw out there",
+              "source": "transcript"
+            }
+          ]
+        },
+        {
+          "id": "refusal:corvan:would",
+          "value": "refuses to speak of would",
+          "strength": 0.5,
+          "evidenceCount": 1,
+          "firstSeenTurn": 19,
+          "lastSeenTurn": 20,
+          "evidence": [
+            {
+              "ref": "18",
+              "quote": "I would rather not talk about the ship",
+              "source": "transcript"
+            }
+          ]
+        }
+      ],
+      "floor": {
+        "kind": "integer-lattice",
+        "axes": [
+          "k",
+          "s"
+        ],
+        "rule": "identity is exact integers; floats never touch identity (quilt-studio floor law)"
+      }
+    },
+    "lineage": {
+      "source": "breed()/chain()",
+      "walk": {
+        "seed": "q16/midden-at-dusk",
+        "artist": "duke",
+        "persona": "purist",
+        "dimensions": 16,
+        "rounds": 8,
+        "points": [
+          [
+            916667,
+            15975,
+            207173,
+            14048,
+            500000,
+            794539,
+            551519,
+            820313,
+            985625,
+            167720,
+            23413,
+            1000000,
+            485714,
+            0,
+            939225,
+            900000
+          ],
+          [
+            883333,
+            31501,
+            407639,
+            75784,
+            500000,
+            934473,
+            521814,
+            820313,
+            1000000,
+            236451,
+            126306,
+            1000000,
+            542857,
+            0,
+            900850,
+            650000
+          ],
+          [
+            775000,
+            19048,
+            410485,
+            45939,
+            500000,
+            943125,
+            490724,
+            820313,
+            1000000,
+            198650,
+            76565,
+            1000000,
+            542857,
+            0,
+            856122,
+            650000
+          ],
+          [
+            766667,
+            37900,
+            442994,
+            81531,
+            500000,
+            931342,
+            562629,
+            820313,
+            1000000,
+            147205,
+            135885,
+            1000000,
+            514286,
+            0,
+            825523,
+            700000
+          ],
+          [
+            733333,
+            12500,
+            468220,
+            63170,
+            500000,
+            990625,
+            605355,
+            820313,
+            971875,
+            182737,
+            105283,
+            1000000,
+            542857,
+            0,
+            840342,
+            650000
+          ],
+          [
+            933333,
+            31349,
+            471217,
+            90567,
+            500000,
+            962857,
+            563022,
+            820313,
+            998750,
+            192261,
+            150946,
+            1000000,
+            542857,
+            0,
+            889130,
+            750000
+          ],
+          [
+            866667,
+            25150,
+            482971,
+            64776,
+            500000,
+            971161,
+            591275,
+            820313,
+            971875,
+            171864,
+            107961,
+            1000000,
+            542857,
+            0,
+            797162,
+            750000
+          ],
+          [
+            783333,
+            44504,
+            418930,
+            64918,
+            500000,
+            1000000,
+            550259,
+            820313,
+            1000000,
+            218271,
+            108197,
+            1000000,
+            571429,
+            0,
+            835089,
+            650000
+          ]
+        ],
+        "ancestry": [
+          {
+            "from": 0,
+            "to": 1,
+            "driftQ": 1012218,
+            "sigmaDrop": 0.05650000000000001
+          },
+          {
+            "from": 1,
+            "to": 2,
+            "driftQ": 325489,
+            "sigmaDrop": -0.00810000000000001
+          },
+          {
+            "from": 2,
+            "to": 3,
+            "driftQ": 398909,
+            "sigmaDrop": 0.001899999999999999
+          },
+          {
+            "from": 3,
+            "to": 4,
+            "driftQ": 391979,
+            "sigmaDrop": 0.0015000000000000013
+          },
+          {
+            "from": 4,
+            "to": 5,
+            "driftQ": 550194,
+            "sigmaDrop": 0.0059000000000000025
+          },
+          {
+            "from": 5,
+            "to": 6,
+            "driftQ": 329192,
+            "sigmaDrop": -0.0006999999999999923
+          },
+          {
+            "from": 6,
+            "to": 7,
+            "driftQ": 477993,
+            "sigmaDrop": -0.0034000000000000002
+          }
+        ]
+      },
+      "verdict": {
+        "status": "HONEST GAP",
+        "round": 7,
+        "sigma": 0.11847104064430357,
+        "residueDims": 12
+      },
+      "gestureReadouts": {
+        "instrument": "torsion",
+        "mode": "cumulative",
+        "rounds": [
+          {
+            "round": 0,
+            "arcLength": 0,
+            "bendingEnergy": 0,
+            "torsion": 0,
+            "planarity": 1,
+            "sigma": 0.1721
+          },
+          {
+            "round": 1,
+            "arcLength": 385447.2700305452,
+            "bendingEnergy": 0,
+            "torsion": 0,
+            "planarity": 1,
+            "sigma": 0.1156
+          },
+          {
+            "round": 2,
+            "arcLength": 525928.8051481541,
+            "bendingEnergy": 1.031756989105012,
+            "torsion": 0,
+            "planarity": 1,
+            "sigma": 0.1237
+          },
+          {
+            "round": 3,
+            "arcLength": 661854.085059582,
+            "bendingEnergy": 2.150979467124233,
+            "torsion": 0.9880998850681391,
+            "planarity": 0.5059500574659305,
+            "sigma": 0.1218
+          },
+          {
+            "round": 4,
+            "arcLength": 782666.7664014015,
+            "bendingEnergy": 3.459953895812939,
+            "torsion": 1.9263471978450137,
+            "planarity": 0.35788426738499546,
+            "sigma": 0.1203
+          },
+          {
+            "round": 5,
+            "arcLength": 1025476.0698598975,
+            "bendingEnergy": 5.043559013345081,
+            "torsion": 2.732037129673741,
+            "planarity": 0.3169907175815647,
+            "sigma": 0.1144
+          },
+          {
+            "round": 6,
+            "arcLength": 1158131.376056069,
+            "bendingEnergy": 6.7549641782171275,
+            "torsion": 3.420748502555813,
+            "planarity": 0.31585029948883736,
+            "sigma": 0.1151
+          },
+          {
+            "round": 7,
+            "arcLength": 1328817.93199121,
+            "bendingEnergy": 7.818597452893381,
+            "torsion": 3.964612097027462,
+            "planarity": 0.33923131716208965,
+            "sigma": 0.1185
+          }
+        ],
+        "gap": {
+          "round": 7,
+          "corroborated": true,
+          "planarityAtGap": 0.33923131716208965,
+          "mechanism": "hesitation",
+          "torsionAddedAtGap": 0.5438635944716488,
+          "priorPerVertexMean": 0.6841497005111626
+        }
+      }
+    },
+    "canon": {
+      "hash": "0x445185a3a99fd2e7",
+      "replaySteps": 152580,
+      "stars": [
+        {
+          "index": 0,
+          "digit": "4",
+          "value": 4
+        },
+        {
+          "index": 1,
+          "digit": "4",
+          "value": 4
+        },
+        {
+          "index": 2,
+          "digit": "5",
+          "value": 5
+        },
+        {
+          "index": 3,
+          "digit": "1",
+          "value": 1
+        },
+        {
+          "index": 4,
+          "digit": "8",
+          "value": 8
+        },
+        {
+          "index": 5,
+          "digit": "5",
+          "value": 5
+        },
+        {
+          "index": 6,
+          "digit": "a",
+          "value": 10
+        },
+        {
+          "index": 7,
+          "digit": "3",
+          "value": 3
+        },
+        {
+          "index": 8,
+          "digit": "a",
+          "value": 10
+        },
+        {
+          "index": 9,
+          "digit": "9",
+          "value": 9
+        },
+        {
+          "index": 10,
+          "digit": "9",
+          "value": 9
+        },
+        {
+          "index": 11,
+          "digit": "f",
+          "value": 15
+        },
+        {
+          "index": 12,
+          "digit": "d",
+          "value": 13
+        },
+        {
+          "index": 13,
+          "digit": "2",
+          "value": 2
+        },
+        {
+          "index": 14,
+          "digit": "e",
+          "value": 14
+        },
+        {
+          "index": 15,
+          "digit": "7",
+          "value": 7
+        }
+      ],
+      "choir": {
+        "teeth": [
+          {
+            "index": 0,
+            "n": 2,
+            "degrees": 137.50776405003785
+          },
+          {
+            "index": 1,
+            "n": 3,
+            "degrees": -42.49223594996215
+          },
+          {
+            "index": 2,
+            "n": 4,
+            "degrees": 17.50776405003785
+          },
+          {
+            "index": 3,
+            "n": 5,
+            "degrees": -6.492235949962151
+          },
+          {
+            "index": 4,
+            "n": 6,
+            "degrees": 2.5077640500378493
+          },
+          {
+            "index": 5,
+            "n": 7,
+            "degrees": -0.9537744115006035
+          },
+          {
+            "index": 6,
+            "n": 8,
+            "degrees": 0.3649069071807389
+          }
+        ],
+        "unplayableStrata": 1,
+        "unplayableBasis": "docs/0-THE-MIDDEN.md §Geography (world doctrine — the fixture carries no playability field; see provenance.gaps)"
+      },
+      "drown": {
+        "note": "the canon's unACKed edges, filed live; paying a debt reopens the channel",
+        "whirlpools": [
+          {
+            "id": "duke-lab#4",
+            "edge": {
+              "from": "hermit",
+              "to": "duke-lab"
+            },
+            "issueUrl": "https://github.com/SuperInstance/duke-lab/issues/4",
+            "state": "OPEN",
+            "kind": "owed_by missing"
+          },
+          {
+            "id": "tidepool#4",
+            "edge": {
+              "from": "duke-lab",
+              "to": "tidepool"
+            },
+            "issueUrl": "https://github.com/SuperInstance/tidepool/issues/4",
+            "state": "OPEN",
+            "kind": "owed_by missing"
+          },
+          {
+            "id": "tidepool#4-quilt",
+            "edge": {
+              "from": "quilt",
+              "to": "tidepool"
+            },
+            "issueUrl": "https://github.com/SuperInstance/tidepool/issues/4",
+            "state": "OPEN",
+            "kind": "owed_by missing"
+          },
+          {
+            "id": "quilt-canon-cli#4",
+            "edge": {
+              "from": "quilt",
+              "to": "hermit"
+            },
+            "issueUrl": "https://github.com/SuperInstance/quilt-canon-cli/issues/4",
+            "state": "OPEN",
+            "kind": "owed_by empty (issues disabled on target)"
+          }
+        ]
+      }
+    }
+  },
+  "strain": {
+    "candorLine": {
+      "instrument": "twist-shear",
+      "sourceRoom": "The Tap (mock commune, all-healthy mode, 20 turns)",
+      "windowDays": 7,
+      "status": "stand-in",
+      "note": "no real transcript week exists yet (the candor lane shipped an honest null). These pulses are the deterministic stand-in shape from midden.js computeLayout — a labeled placeholder for the first real σ-shear reading, not a measurement.",
+      "derivedFrom": "midden.js computeLayout(data,1600,900).candor[].strain (deterministic)",
+      "pulses": [
+        6.03917593812269e-17,
+        1.588186225556201e-16,
+        4.1239895059085154e-16,
+        1.0573677528909353e-15,
+        2.676867991320314e-15,
+        6.691449910762323e-15,
+        1.6516038687823864e-14,
+        4.0251672925948706e-14,
+        9.6862207414735e-14,
+        2.3015328206594866e-13,
+        5.399734000269265e-13,
+        1.2508923701681657e-12,
+        2.861277002385049e-12,
+        6.462376377480366e-12,
+        1.4411758495219328e-11,
+        3.173467732203287e-11,
+        6.899912464831673e-11,
+        1.481308309049354e-10,
+        3.140072822935321e-10,
+        6.572435984163825e-10,
+        1.3583303133907334e-9,
+        2.771895186334595e-9,
+        5.5852240466998715e-9,
+        1.1112116284249607e-8,
+        2.1829577951254937e-8,
+        4.2343454331829223e-8,
+        8.109976821190924e-8,
+        1.5337173304720736e-7,
+        2.8639367371618763e-7,
+        5.280486045370826e-7,
+        9.61339443207442e-7,
+        0.0000017281124825884092,
+        0.0000030673238842842936,
+        0.0000053757572448483515,
+        0.000009302764884266181,
+        0.000015895596290970637,
+        0.000026818469346472135,
+        0.00004467695166318862,
+        0.00007348952882312032,
+        0.00011936026545430469,
+        0.00019141963002206362,
+        0.0003031136906058643,
+        0.00047393307205042883,
+        0.0007316794582978007,
+        0.001115365206538471,
+        0.0016788260764618048,
+        0.0024950928019969883,
+        0.0036615088128676004,
+        0.0053054942433850266,
+        0.00759073788216964,
+        0.010723449864460714,
+        0.014958134700577467,
+        0.020602159132258335,
+        0.02801821208337226,
+        0.037623611630118105,
+        0.04988533931410308,
+        0.06530971097784251,
+        0.08442575954653206,
+        0.10776173488722231,
+        0.1358146304069513,
+        0.1690133154060661,
+        0.20767664989650267,
+        0.25196881946374944,
+        0.30185495996883244,
+        0.3570608339966187,
+        0.4170407539808249,
+        0.4809580106456041,
+        0.547681676821419,
+        0.6158027780375863,
+        0.6836714740908958,
+        0.7494551679672171,
+        0.8112155020130549,
+        0.8670002191939961,
+        0.9149440910563,
+        0.9533717733670788,
+        0.9808947403842362,
+        0.9964944988581913,
+        0.9995851340916436,
+        0.9900498337491681,
+        0.9682482152713443,
+        0.9349938161004238,
+        0.8915037110249937,
+        0.8393246065807679,
+        0.7802416672302763,
+        0.7161775553054536,
+        0.6490896090492856,
+        0.5808727332051775,
+        0.51327452297212,
+        0.44782755132294866,
+        0.385801838579085,
+        0.3281785263999339,
+        0.27564391627386325,
+        0.22860148437957103,
+        0.18719837046582868,
+        0.151362211784752,
+        0.12084404389389235,
+        0.0952632553278103,
+        0.07415116346029102,
+        0.05699055740116664,
+        0.04324941356277932,
+        0.03240782797472903,
+        0.023977947785342825,
+        0.01751727221240735,
+        0.012636108051519154,
+        0.00900020841599185,
+        0.006329715427485746,
+        0.004395499021670617,
+        0.00301387040214673,
+        0.002040484700151342,
+        0.0013640632086629675,
+        0.0009003845442185215,
+        0.0005868322201696562,
+        0.0003776524041422191,
+        0.00023997330901997932,
+        0.00015056568691158243,
+        0.0000932784805309459,
+        0.00005705967577476365,
+        0.00003446430456788909,
+        0.000020554273119279956,
+        0.00001210394968959814,
+        0.000007037922499383105
+      ]
+    }
+  },
+  "visitors": {
+    "may": [
+      "observe",
+      "quote-with-citation",
+      "mark"
+    ],
+    "writes": {
+      "free": false,
+      "markCost": "fuel",
+      "rule": "Observation and quotation are free. A mark is a claim on the room: it burns fuel proportional to what it asserts, and it lands only where the surfaces already carry the evidence. room-protocol/1 ships read-only — the mark affordance declares the seam; the fuel meter lands with the write protocol."
+    }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "fixture": "data/terrain.json",
+        "repo": "SuperInstance/the-tap",
+        "ref": "lane-l-commune-deep @ 42f878e — workers/room-worker/src/values-ledger.ts over test/commune-harness.mjs",
+        "note": "real extractor, mock commune, 20 turns"
+      },
+      {
+        "fixture": "data/lineage.json",
+        "repo": "SuperInstance/q16-trajectories",
+        "ref": "PR #1 lane-n-q16-bridge @ bfd7ee8 — src/breed.js + src/chain()",
+        "note": "the rescued ℚ¹⁶ walk; verdict HONEST GAP @ r7"
+      },
+      {
+        "fixture": "data/whirlpools.json",
+        "repo": "SuperInstance/{duke-lab,tidepool,quilt-canon-cli}",
+        "ref": "issues #4 — verified OPEN at authoring time",
+        "note": "the canon's real unACKed edges"
+      },
+      {
+        "fixture": "data/sky.json",
+        "repo": "the fleet canon",
+        "ref": "sandbox proof replayed in exactly 152,580 steps",
+        "note": "stars fixed at the hash digits; navigation error is impossible"
+      },
+      {
+        "fixture": "data/choir.json",
+        "repo": "SuperInstance/quilt-studio",
+        "ref": "packages/quilt-floor/src/golden.mjs convergentGaps(8) @ 5821ebf0b4c30d45559a076a97aa76a8693d6f32",
+        "note": "exact code output, not the dream's ~0.75° approximation"
+      }
+    ],
+    "gaps": [
+      {
+        "area": "ledger",
+        "gap": "no achieved/ ledger exists on disk — the terrain is a mock commune run through the real extractor",
+        "consequence": "the first real room death re-settles this surface; strengths here are harness-grounded, not fleet-grounded"
+      },
+      {
+        "area": "strain",
+        "gap": "no real transcript week exists yet — the candor lane shipped an honest null",
+        "consequence": "pulses are a deterministic stand-in, labeled stand-in; swap for a measured σ-shear reading when candor lands"
+      },
+      {
+        "area": "lineage",
+        "gap": "one rescued walk only — the Understory is a single hypha",
+        "consequence": "fusion and birth surfaces are unsettled; no Meeting of Waters can be addressed yet"
+      },
+      {
+        "area": "choir",
+        "gap": "the fixture carries no playability field; the one-unplayable-stratum line is world doctrine from the dream doc",
+        "consequence": "verify against golden.mjs output before the first Moot is scheduled"
+      },
+      {
+        "area": "drown",
+        "gap": "whirlpool state was verified OPEN at authoring time; issues are live state and can close",
+        "consequence": "re-run the builder to re-settle; a closed debt is terrain with better grip (the scar-line law)"
+      }
+    ]
+  }
+}
