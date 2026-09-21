@@ -3,6 +3,159 @@
   "generatedBy": "node tools/gen-world.mjs",
   "title": "the midden — the floor you can walk",
   "note": "rooms are the rounds of the rescued Q^16 walk, laid out on the two highest-variance REAL feature axes; trails are the ancestry edges. The verdict round is the ember room.",
+  "landmarks": {
+    "ridges": {
+      "source": "SuperInstance/the-tap @ lane-l-commune-deep 42f878e (workers/room-worker/src/values-ledger.ts)",
+      "note": "the-tap real values ledger — strength is elevation. Distant silhouettes on the horizon; the walk floor stays addressable.",
+      "items": [
+        {
+          "id": "returns:room:foghorns",
+          "value": "keeps returning to foghorns",
+          "strength": 1,
+          "evidence": 7
+        },
+        {
+          "id": "pour:wesley",
+          "value": "pours before being asked",
+          "strength": 0.8,
+          "evidence": 3
+        },
+        {
+          "id": "refusal:corvan:name",
+          "value": "refuses to speak of name",
+          "strength": 0.65,
+          "evidence": 2
+        },
+        {
+          "id": "returns:room:glass",
+          "value": "keeps returning to glass",
+          "strength": 0.6000000000000001,
+          "evidence": 3
+        },
+        {
+          "id": "commitment:mara:keep",
+          "value": "gave their word on keep",
+          "strength": 0.5,
+          "evidence": 1
+        },
+        {
+          "id": "commitment:mara:promise",
+          "value": "gave their word on promise",
+          "strength": 0.5,
+          "evidence": 1
+        },
+        {
+          "id": "commitment:corvan:check",
+          "value": "gave their word on check",
+          "strength": 0.5,
+          "evidence": 1
+        },
+        {
+          "id": "refusal:corvan:say",
+          "value": "refuses to speak of say",
+          "strength": 0.5,
+          "evidence": 1
+        },
+        {
+          "id": "refusal:corvan:would",
+          "value": "refuses to speak of would",
+          "strength": 0.5,
+          "evidence": 1
+        }
+      ]
+    },
+    "whirlpools": {
+      "source": "fleet canon lint sweep 2026-09-20 — unACKed canon edges (the Drown)",
+      "note": "the Drown — real OPEN canon-lint issues; voids in the low ground.",
+      "items": [
+        {
+          "id": "duke-lab#4",
+          "url": "https://github.com/SuperInstance/duke-lab/issues/4",
+          "title": "canon: owed_by lacks hermit (canon-stub)",
+          "state": "OPEN",
+          "kind": "owed_by missing"
+        },
+        {
+          "id": "tidepool#4",
+          "url": "https://github.com/SuperInstance/tidepool/issues/4",
+          "title": "canon: owed_by lacks duke-lab and quilt",
+          "state": "OPEN",
+          "kind": "owed_by missing"
+        },
+        {
+          "id": "tidepool#4-quilt",
+          "url": "https://github.com/SuperInstance/tidepool/issues/4",
+          "title": "canon: owed_by lacks duke-lab and quilt",
+          "state": "OPEN",
+          "kind": "owed_by missing"
+        },
+        {
+          "id": "quilt-canon-cli#4",
+          "url": "https://github.com/SuperInstance/quilt-canon-cli/issues/4",
+          "title": "canon drift: hermit owed_by empty — quilt + duke-lab unACKed (hermit issues disabled)",
+          "state": "OPEN",
+          "kind": "owed_by empty (issues disabled on target)"
+        }
+      ]
+    },
+    "choir": {
+      "source": "quilt-studio packages/quilt-floor/src/golden.mjs convergentGaps(8) @ 5821ebf0b4c30d45559a076a97aa76a8693d6f32",
+      "note": "The 7 teeth of the Twist engine commensuration comb: convergent gaps of the golden direction, F(n+1)/F(n)·360° vs 360°·φ, in degrees. The dream says ~0.75° apart — that is the fine-ladder spacing scale; the real teeth below are exact code output, not the approximation.",
+      "items": [
+        {
+          "n": 2,
+          "degrees": 137.50776405003785
+        },
+        {
+          "n": 3,
+          "degrees": -42.49223594996215
+        },
+        {
+          "n": 4,
+          "degrees": 17.50776405003785
+        },
+        {
+          "n": 5,
+          "degrees": -6.492235949962151
+        },
+        {
+          "n": 6,
+          "degrees": 2.5077640500378493
+        },
+        {
+          "n": 7,
+          "degrees": -0.9537744115006035
+        },
+        {
+          "n": 8,
+          "degrees": 0.3649069071807389
+        }
+      ]
+    },
+    "sky": {
+      "source": "the fleet canon — sandbox proof replayed in exactly 152,580 steps",
+      "canonHash": "0x445185a3a99fd2e7",
+      "note": "Stars are fixed at the canon hash's hex digits. The sky is the canon: navigation error is impossible; you can always recompute where you are.",
+      "digitValues": [
+        4,
+        4,
+        5,
+        1,
+        8,
+        5,
+        10,
+        3,
+        10,
+        9,
+        9,
+        15,
+        13,
+        2,
+        14,
+        7
+      ]
+    }
+  },
   "provenance": {
     "source": "SuperInstance/q16-trajectories @ lane-n-q16-bridge bfd7ee8 (src/breed.js, src/lineage.js)",
     "seed": "q16/midden-at-dusk",
@@ -29,10 +182,14 @@
     "realRounds": 8,
     "syntheticRounds": 4,
     "syntheticMethod": "damped per-feature least-squares slope over real rounds 4..7, decay 0.85 per step, clamped to the walk's own [0, 1000000] Q-range, rounded to integers. Deterministic; no randomness, no model output, no verdict.",
-    "layoutAxes": {
-      "x": 2,
-      "z": 15,
-      "rule": "highest per-feature variance across the REAL rounds only"
+    "layout": {
+      "method": "deterministic PCA (power iteration, fixed start) on the REAL 8x16 matrix; the same projection is applied to the synthetic rounds. Uniform scale, centred — the floor keeps the walk's own shape.",
+      "readabilityRule": "room.position = walkable layout. The damped synthetic continuation converges, so its true projections pile up; synthetic rooms are laid at exactly 14-unit intervals along their own true direction of travel, chaining from the gap room. Every room also carries `projected` = its true PCA position, unmodified.",
+      "minSeparation": 14,
+      "pc1Eigenvalue": 21822160000,
+      "pc2Eigenvalue": 5410255000,
+      "spanX": 300,
+      "spanZ": 230
     }
   },
   "dims": {
@@ -52,10 +209,14 @@
       },
       "ember": false,
       "position": {
-        "x": -130,
-        "z": 100,
-        "y": 0,
-        "i": 0
+        "x": -150,
+        "z": -39.082,
+        "y": 0
+      },
+      "projected": {
+        "x": -150,
+        "z": -39.082,
+        "y": 0
       },
       "readout": {
         "arcLength": 0,
@@ -76,10 +237,14 @@
       },
       "ember": false,
       "position": {
-        "x": 58.983,
-        "z": -100,
-        "y": 0,
-        "i": 1
+        "x": 76.965,
+        "z": -4.487,
+        "y": 0
+      },
+      "projected": {
+        "x": 76.965,
+        "z": -4.487,
+        "y": 0
       },
       "readout": {
         "arcLength": 385447.27,
@@ -100,10 +265,14 @@
       },
       "ember": false,
       "position": {
-        "x": 61.666,
-        "z": -100,
-        "y": 0,
-        "i": 2
+        "x": 99.766,
+        "z": -68.886,
+        "y": 0
+      },
+      "projected": {
+        "x": 99.766,
+        "z": -68.886,
+        "y": 0
       },
       "readout": {
         "arcLength": 525928.8051,
@@ -124,10 +293,14 @@
       },
       "ember": false,
       "position": {
-        "x": 92.313,
-        "z": -60,
-        "y": 0,
-        "i": 3
+        "x": 104.923,
+        "z": -32.895,
+        "y": 0
+      },
+      "projected": {
+        "x": 104.923,
+        "z": -32.895,
+        "y": 0
       },
       "readout": {
         "arcLength": 661854.0851,
@@ -148,10 +321,14 @@
       },
       "ember": false,
       "position": {
-        "x": 116.094,
-        "z": -100,
-        "y": 0,
-        "i": 4
+        "x": 150,
+        "z": -47.093,
+        "y": 0
+      },
+      "projected": {
+        "x": 150,
+        "z": -47.093,
+        "y": 0
       },
       "readout": {
         "arcLength": 782666.7664,
@@ -172,10 +349,14 @@
       },
       "ember": false,
       "position": {
-        "x": 118.919,
-        "z": -20,
-        "y": 0,
-        "i": 5
+        "x": 67.088,
+        "z": 68.886,
+        "y": 0
+      },
+      "projected": {
+        "x": 67.088,
+        "z": 68.886,
+        "y": 0
       },
       "readout": {
         "arcLength": 1025476.0699,
@@ -196,10 +377,14 @@
       },
       "ember": false,
       "position": {
-        "x": 130,
-        "z": -20,
-        "y": 0,
-        "i": 6
+        "x": 94.188,
+        "z": 34.713,
+        "y": 0
+      },
+      "projected": {
+        "x": 94.188,
+        "z": 34.713,
+        "y": 0
       },
       "readout": {
         "arcLength": 1158131.3761,
@@ -220,10 +405,14 @@
       },
       "ember": true,
       "position": {
-        "x": 69.627,
-        "z": -100,
-        "y": 0,
-        "i": 7
+        "x": 129.045,
+        "z": -41.221,
+        "y": 0
+      },
+      "projected": {
+        "x": 129.045,
+        "z": -41.221,
+        "y": 0
       },
       "readout": {
         "arcLength": 1328817.932,
@@ -245,10 +434,14 @@
       },
       "ember": false,
       "position": {
-        "x": 58.72,
-        "z": -100,
-        "y": 0,
-        "i": 8
+        "x": 116.191,
+        "z": -46.768,
+        "y": 0
+      },
+      "projected": {
+        "x": 125.182,
+        "z": -42.888,
+        "y": 0
       },
       "readout": {
         "arcLength": 1352903.8503,
@@ -270,10 +463,14 @@
       },
       "ember": false,
       "position": {
-        "x": 49.449,
-        "z": -100,
-        "y": 0,
-        "i": 9
+        "x": 103.336,
+        "z": -52.313,
+        "y": 0
+      },
+      "projected": {
+        "x": 121.899,
+        "z": -44.304,
+        "y": 0
       },
       "readout": {
         "arcLength": 1373376.7383,
@@ -295,10 +492,14 @@
       },
       "ember": false,
       "position": {
-        "x": 41.569,
-        "z": -100,
-        "y": 0,
-        "i": 10
+        "x": 90.482,
+        "z": -57.86,
+        "y": 0
+      },
+      "projected": {
+        "x": 119.109,
+        "z": -45.508,
+        "y": 0
       },
       "readout": {
         "arcLength": 1390779.1794,
@@ -320,10 +521,14 @@
       },
       "ember": false,
       "position": {
-        "x": 34.871,
-        "z": -100,
-        "y": 0,
-        "i": 11
+        "x": 77.629,
+        "z": -63.409,
+        "y": 0
+      },
+      "projected": {
+        "x": 116.737,
+        "z": -46.532,
+        "y": 0
       },
       "readout": {
         "arcLength": 1405570.3712,

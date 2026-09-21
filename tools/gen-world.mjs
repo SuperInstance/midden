@@ -88,34 +88,161 @@ function continueTrajectory(trajectory) {
   return out;
 }
 
-// ── Layout: project ℚ¹⁶ onto the two highest-variance REAL feature axes ────
-/** Per-feature variance across the REAL rounds only — layout is decided on
- *  real data, then applied unchanged to the synthetic extension. */
-function featureVariance(points) {
-  const dims = points[0].length;
-  const out = [];
-  for (let d = 0; d < dims; d++) {
-    const col = points.map((p) => p[d]);
-    const m = col.reduce((a, b) => a + b, 0) / col.length;
-    out.push({ dim: d, variance: col.reduce((a, b) => a + (b - m) ** 2, 0) / col.length });
+// ── Layout ────────────────────────────────────────────────────────────────
+/** Deterministic PCA (power iteration + deflation, fixed start vector) on the
+ *  REAL rounds only. Raw feature axes are no good here: the walk saturates
+ *  (several features pin at 0 or 1e6), so axis-aligned projection piles rooms
+ *  on top of each other. The two leading components of the real 8×16 matrix
+ *  spread the rounds out, and the SAME projection is applied unchanged to the
+ *  synthetic extension. Scaling is uniform, so the floor keeps the walk's own
+ *  shape — the geography IS the gesture, not a stretched version of it. */
+function pcaLayout(points, nReal, spanX, spanZ) {
+  const real = points.slice(0, nReal);
+  const dims = real[0].length;
+  const n = real.length;
+
+  const mean = new Array(dims).fill(0);
+  real.forEach((p) => p.forEach((v, d) => { mean[d] += v / n; }));
+  const c = points.map((p) => p.map((v, d) => v - mean[d]));
+
+  const cov = Array.from({ length: dims }, () => new Array(dims).fill(0));
+  for (let i = 0; i < n; i++) {
+    for (let a = 0; a < dims; a++) {
+      for (let b = 0; b < dims; b++) cov[a][b] += (c[i][a] * c[i][b]) / (n - 1);
+    }
   }
-  return out.sort((a, b) => b.variance - a.variance);
+
+  const axes = [];
+  let M = cov.map((r) => r.slice());
+  for (let k = 0; k < 2; k++) {
+    let v = new Array(dims).fill(1 / Math.sqrt(dims));
+    for (let it = 0; it < 400; it++) {
+      const w = new Array(dims).fill(0);
+      for (let a = 0; a < dims; a++) {
+        for (let b = 0; b < dims; b++) w[a] += M[a][b] * v[b];
+      }
+      const norm = Math.hypot(...w) || 1;
+      v = w.map((x) => x / norm);
+    }
+    let lambda = 0;
+    for (let a = 0; a < dims; a++) {
+      for (let b = 0; b < dims; b++) lambda += v[a] * M[a][b] * v[b];
+    }
+    axes.push({ v, lambda });
+    for (let a = 0; a < dims; a++) {
+      for (let b = 0; b < dims; b++) M[a][b] -= lambda * v[a] * v[b];
+    }
+  }
+
+  const proj = points.map((p) => [
+    p.reduce((s, x, d) => s + (x - mean[d]) * axes[0].v[d], 0),
+    p.reduce((s, x, d) => s + (x - mean[d]) * axes[1].v[d], 0),
+  ]);
+
+  // orient +x along the real walk's progression, so the floor reads forward
+  if (proj[nReal - 1][0] < proj[0][0]) {
+    proj.forEach((q) => { q[0] = -q[0]; });
+  }
+
+  // uniform fit: one scale for both axes, centred — no distortion
+  const xs = proj.map((q) => q[0]);
+  const zs = proj.map((q) => q[1]);
+  const rx = (Math.max(...xs) - Math.min(...xs)) || 1;
+  const rz = (Math.max(...zs) - Math.min(...zs)) || 1;
+  const s = Math.min(spanX / rx, spanZ / rz);
+  const cx = (Math.max(...xs) + Math.min(...xs)) / 2;
+  const cz = (Math.max(...zs) + Math.min(...zs)) / 2;
+
+  return {
+    axes: axes.map((a) => +a.lambda.toExponential(6)),
+    points: proj.map((q) => ({
+      x: +((q[0] - cx) * s).toFixed(3),
+      z: +((q[1] - cz) * s).toFixed(3),
+      y: 0,
+    })),
+  };
 }
 
-function layout(points, dims, spanX, spanZ) {
-  const [dx, dz] = dims;
-  const xs = points.map((p) => p[dx]);
-  const zs = points.map((p) => p[dz]);
-  const lo = (a) => Math.min(...a);
-  const hi = (a) => Math.max(...a);
-  const sx = (hi(xs) - lo(xs)) || 1;
-  const sz = (hi(zs) - lo(zs)) || 1;
-  return points.map((p, i) => ({
-    x: +(((p[dx] - lo(xs)) / sx - 0.5) * spanX).toFixed(3),
-    z: +(((p[dz] - lo(zs)) / sz - 0.5) * spanZ).toFixed(3),
-    y: 0,
-    i,
-  }));
+// ── Landmarks: the other REAL midden fixtures, copied verbatim so the world
+// needs zero fetches. Each block cites the fixture it came from; nothing here
+// is synthesized or re-derived. ──────────────────────────────────────────
+function readFixture(name) {
+  return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', name), 'utf8'));
+}
+
+function buildLandmarks() {
+  const terrain = readFixture('terrain.json');
+  const whirlpools = readFixture('whirlpools.json');
+  const choir = readFixture('choir.json');
+  const sky = readFixture('sky.json');
+
+  return {
+    ridges: {
+      source: terrain.source,
+      note:
+        'the-tap real values ledger — strength is elevation. Distant ' +
+        'silhouettes on the horizon; the walk floor stays addressable.',
+      items: terrain.ledger.entries.map((e) => ({
+        id: e.id,
+        value: e.value,
+        strength: e.strength,
+        evidence: (e.evidence || []).length,
+      })),
+    },
+    whirlpools: {
+      source: whirlpools.source,
+      note: 'the Drown — real OPEN canon-lint issues; voids in the low ground.',
+      items: whirlpools.whirlpools.map((w) => ({
+        id: w.id,
+        url: w.url,
+        title: w.title,
+        state: w.state,
+        kind: w.kind,
+      })),
+    },
+    choir: {
+      source: choir.source,
+      note: choir.note,
+      items: choir.teeth.map((t) => ({ n: t.n, degrees: t.degrees })),
+    },
+    sky: {
+      source: sky.source,
+      canonHash: sky.canonHash,
+      note: sky.note,
+      digitValues: sky.digitValues,
+    },
+  };
+}
+
+/** The damped continuation converges, so its true projected positions pile up
+ *  (2–4 units apart — the cells would overlap and could not be walked).
+ *  Synthetic rooms are therefore laid at exactly `minSep` intervals along
+ *  their own true direction of travel, chaining from the gap room. Never
+ *  sideways, never back toward the real walk. Every room still carries
+ *  `projected` = its true PCA position, so nothing is hidden; only the
+ *  walkable layout is spread. */
+function spreadSynthetic(points, nReal, minSep) {
+  const out = points.map((p) => ({ ...p }));
+  for (let r = nReal; r < out.length; r++) {
+    let dx = points[r].x - points[r - 1].x;
+    let dz = points[r].z - points[r - 1].z;
+    let d = Math.hypot(dx, dz);
+    if (d < 1e-6) {
+      // degenerate: continue along the last real segment's direction
+      const a = points[Math.max(0, nReal - 2)];
+      const b = points[nReal - 1];
+      dx = b.x - a.x;
+      dz = b.z - a.z;
+      d = Math.hypot(dx, dz) || 1;
+    }
+    const prev = out[r - 1];
+    out[r] = {
+      x: +((prev.x + (dx / d) * minSep)).toFixed(3),
+      z: +((prev.z + (dz / d) * minSep)).toFixed(3),
+      y: 0,
+    };
+  }
+  return out;
 }
 
 // ── Export ────────────────────────────────────────────────────────────────
@@ -166,10 +293,11 @@ export function buildWorld(lineage) {
   }
 
   // 4. layout on the floor
-  const top2 = featureVariance(realTraj.map((t) => t.point)).slice(0, 2).map((v) => v.dim);
-  const SPAN_X = 260;
-  const SPAN_Z = 200;
-  const pos = layout(points, top2, SPAN_X, SPAN_Z);
+  const SPAN_X = 300;
+  const SPAN_Z = 230;
+  const MIN_SEP = 14;
+  const laidOut = pcaLayout(points, nReal, SPAN_X, SPAN_Z);
+  const pos = spreadSynthetic(laidOut.points, nReal, MIN_SEP);
 
   // 5. rooms
   const rooms = traj.map((t, r) => {
@@ -187,6 +315,7 @@ export function buildWorld(lineage) {
       },
       ember: isGap,
       position: pos[r],
+      projected: laidOut.points[r],
       readout: {
         arcLength: +rounds[r].arcLength.toFixed(4),
         bendingEnergy: +rounds[r].bendingEnergy.toFixed(4),
@@ -289,6 +418,7 @@ export function buildWorld(lineage) {
       'rooms are the rounds of the rescued Q^16 walk, laid out on the two ' +
       'highest-variance REAL feature axes; trails are the ancestry edges. ' +
       'The verdict round is the ember room.',
+    landmarks: buildLandmarks(),
     provenance: {
       source: lineage.source ?? null,
       seed: lineage.seed ?? null,
@@ -298,10 +428,22 @@ export function buildWorld(lineage) {
       realRounds: nReal,
       syntheticRounds: traj.length - nReal,
       syntheticMethod: SYNTH_METHOD,
-      layoutAxes: {
-        x: top2[0],
-        z: top2[1],
-        rule: 'highest per-feature variance across the REAL rounds only',
+      layout: {
+        method:
+          'deterministic PCA (power iteration, fixed start) on the REAL 8x16 ' +
+          'matrix; the same projection is applied to the synthetic rounds. ' +
+          'Uniform scale, centred — the floor keeps the walk\'s own shape.',
+        readabilityRule:
+          'room.position = walkable layout. The damped synthetic continuation ' +
+          'converges, so its true projections pile up; synthetic rooms are ' +
+          'laid at exactly ' + MIN_SEP + '-unit intervals along their own true ' +
+          'direction of travel, chaining from the gap room. Every room also ' +
+          'carries `projected` = its true PCA position, unmodified.',
+        minSeparation: MIN_SEP,
+        pc1Eigenvalue: laidOut.axes[0],
+        pc2Eigenvalue: laidOut.axes[1],
+        spanX: SPAN_X,
+        spanZ: SPAN_Z,
       },
     },
     dims: { n: dims, nRounds: traj.length, nRealRounds: nReal },

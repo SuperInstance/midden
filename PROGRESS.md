@@ -48,3 +48,16 @@ Three.js first-person world that opens from `file://`, node smoke test, PR.
       3 walks; guards verify instrument vs docs/GESTURE-NOTES.md — all match
       (r7 planarity 0.339231, torsion step 0.543864, arc step 170686.6).
 NEXT: world/index.html + world.js (first-person, file://).
+- [t4] `world/index.html` + `world/world.js` written: first-person walk,
+      classic scripts only (three UMD → world-data.js → world.js), zero fetch.
+      Rooms = glowing cells; ember gap room pulses + 110u light pillar;
+      mint trails w/ plankton points; broken rings + steel tint on SYNTHETIC;
+      landmarks: 9 ledger ridges, 7 choir bells, 4 Drown whirlpools, 16 canon
+      stars. Controls: pointer-lock look, WASD/shift, F = follow the trail.
+- [t5] Layout fix: raw feature axes were degenerate (walk saturates → rooms
+      piled at z=-100, overlapping). Replaced with deterministic PCA on the
+      REAL 8x16 matrix, uniform scale (floor keeps the walk's own shape);
+      synthetic continuation converges, so its rooms chain at 14u intervals
+      along their true direction of travel — true PCA coords kept per-room in
+      `projected`. Min pairwise room distance now 14.0u.
+NEXT: smoke test, then browser-level check if a headless browser exists.
