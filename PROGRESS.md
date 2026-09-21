@@ -61,3 +61,16 @@ NEXT: world/index.html + world.js (first-person, file://).
       along their true direction of travel — true PCA coords kept per-room in
       `projected`. Min pairwise room distance now 14.0u.
 NEXT: smoke test, then browser-level check if a headless browser exists.
+- [t6] Headless-Chrome verification over file:// (swiftshader). First run
+      caught a real bug: emberRooms entries lacked dome/halo -> TypeError per
+      frame. Fixed (pillar attached to the room entry). Re-run: 0 console
+      errors.
+- [t7] Deep links added (#r7 / #at=rN&enter=1 / #walk=1) for sharing a room
+      and headless verification. Trail plankton given round soft sprites
+      (were bare squares); marine-snow dust field (14k seeded-LCG motes —
+      deterministic, seeded from the canon hash) so the abyss reads while
+      walking; floor/lamp/grid brightness tuned. Screenshots: intro, r7 gap
+      room, r0, autopilot view — all good. Saved world/screenshot.png.
+- [t8] test/smoke.mjs: 15 checks, all pass. Full suite `npm test`: 37 pass
+      (22 pre-existing + 15 new), 0 fail.
+NEXT: README + provenance docs, push, PR.

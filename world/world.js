@@ -41,7 +41,7 @@
   // ── palette ───────────────────────────────────────────────────────────
   var C = {
     deep: 0x04060e,
-    floor: 0x060b18,
+    floor: 0x071020,
     lattice: 0x16294a,
     blue: 0x1a6fc0,        // bioluminescent blue — real rooms
     blueCore: 0x0b2b4d,
@@ -81,8 +81,8 @@
   camera.rotation.order = 'YXZ';
   camera.position.set(0, EYE, 108);
 
-  scene.add(new THREE.AmbientLight(0x0a1428, 2.4));
-  var lamp = new THREE.PointLight(0xbfd8ff, 0.55, 30);   // the walker's own lamp
+  scene.add(new THREE.AmbientLight(0x0a1428, 2.9));
+  var lamp = new THREE.PointLight(0xbfd8ff, 0.95, 34);   // the walker's own lamp
   camera.add(lamp);
   lamp.position.set(0, 0, 0);
   scene.add(camera);
@@ -146,14 +146,37 @@
 
   var grid = new THREE.GridHelper(1600, 160, C.lattice, 0x0d1c36);
   grid.material.transparent = true;
-  grid.material.opacity = 0.30;
+  grid.material.opacity = 0.50;
   grid.position.y = 0.02;
   scene.add(grid);
+
+  // marine snow — the abyss is never empty: a sparse static dust field that
+  // makes motion readable while you walk. 3000 motes, no updates per frame.
+  // Seeded LCG, not Math.random — the same every load, like the rest of the map.
+  (function marineSnow() {
+    var seed = 0x445185a3;                       // the canon hash's high bits
+    function rnd() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+    var n = 14000;
+    var pos = new Float32Array(n * 3);
+    for (var i = 0; i < n; i++) {
+      pos[i * 3] = (rnd() - 0.5) * 720;
+      pos[i * 3 + 1] = 0.2 + rnd() * rnd() * 20;
+      pos[i * 3 + 2] = (rnd() - 0.5) * 720;
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    scene.add(new THREE.Points(geo, new THREE.PointsMaterial({
+      map: haloTexture('rgba(190,235,255,0.8)', 'rgba(120,190,220,0.25)'),
+      color: 0x9fd8e8, size: 0.42, sizeAttenuation: true, transparent: true,
+      opacity: 0.55, blending: THREE.AdditiveBlending, depthWrite: false,
+    })));
+  })();
 
   // ── rooms ─────────────────────────────────────────────────────────────
   var rooms = [];
   var emberRooms = [];
   var roomById = {};
+  var pillarsById = {};
 
   WORLD.rooms.forEach(function (r) {
     var p = r.position || { x: 0, z: 0 };
@@ -195,7 +218,7 @@
       opacity: ember ? 0.95 : (synth ? 0.5 : 0.75),
     }));
     halo.position.set(p.x, 1.1, p.z);
-    halo.scale.set(16, 16, 1);
+    halo.scale.set(18, 18, 1);
     scene.add(halo);
 
     // label
@@ -209,17 +232,17 @@
     // ember pillar — visible across the floor; this is the wayfinding
     if (ember) {
       var pillar = new THREE.Mesh(
-        new THREE.CylinderGeometry(1.15, 1.15, 110, 18, 1, true),
+        new THREE.CylinderGeometry(1.6, 1.6, 120, 18, 1, true),
         new THREE.MeshBasicMaterial({
           color: C.ember, transparent: true, opacity: 0.11,
           blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide,
         }));
-      pillar.position.set(p.x, 55, p.z);
+      pillar.position.set(p.x, 60, p.z);
       scene.add(pillar);
       var glow = new THREE.PointLight(C.emberSoft, 1.7, 46);
       glow.position.set(p.x, 4, p.z);
       scene.add(glow);
-      emberRooms.push({ room: r, pillar: pillar });
+      pillarsById[r.id] = pillar;
     }
 
     var entry = {
@@ -229,6 +252,14 @@
     };
     rooms.push(entry);
     roomById[r.id] = entry;
+  });
+
+  // the ember rooms (built after the loop, so entries carry dome + halo + pillar)
+  rooms.forEach(function (entry) {
+    if (entry.data.ember) {
+      entry.pillar = pillarsById[entry.data.id];
+      emberRooms.push(entry);
+    }
   });
 
   // ── trails: the ancestry edges, lit ───────────────────────────────────
@@ -285,9 +316,10 @@
       var geo = new THREE.BufferGeometry();
       geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
       scene.add(new THREE.Points(geo, new THREE.PointsMaterial({
+        map: haloTexture('rgba(255,255,255,0.95)', 'rgba(255,255,255,0.35)'),
         color: prov === 'SYNTHETIC' ? C.steel : C.mint,
-        size: 0.34, sizeAttenuation: true, transparent: true,
-        opacity: prov === 'SYNTHETIC' ? 0.45 : 0.8,
+        size: 0.55, sizeAttenuation: true, transparent: true,
+        opacity: prov === 'SYNTHETIC' ? 0.4 : 0.85,
         blending: THREE.AdditiveBlending, depthWrite: false,
       })));
     });
@@ -539,7 +571,7 @@
           while (dy > Math.PI) dy -= Math.PI * 2;
           while (dy < -Math.PI) dy += Math.PI * 2;
           yaw += dy * Math.min(1, dt * 3.2);
-          pitch += (-0.05 - pitch) * Math.min(1, dt * 2.0);
+          pitch += (-0.20 - pitch) * Math.min(1, dt * 2.0);
         }
       }
     }
@@ -585,8 +617,8 @@
       er.dome.material.emissiveIntensity = 1.15 + pulse * 1.15;
       er.halo.material.opacity = 0.62 + pulse * 0.38;
       var sc = 1 + pulse * 0.07;
-      er.halo.scale.set(16 * sc, 16 * sc, 1);
-      if (er.pillar) er.pillar.material.opacity = 0.07 + pulse * 0.075;
+      er.halo.scale.set(18 * sc, 18 * sc, 1);
+      if (er.pillar) er.pillar.material.opacity = 0.085 + pulse * 0.09;
     });
     bells.forEach(function (b, i) {
       b.mesh.material.opacity = b.base + 0.22 * (0.5 + 0.5 * Math.sin(t * 0.9 + b.phase));
@@ -639,6 +671,30 @@
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
+
+  // ── deep links ────────────────────────────────────────────────────────
+  // #r7            stand in front of room r7, facing it
+  // #at=r7&enter=1 same, and skip the intro card
+  // #walk=1        start the trail autopilot on load (no pointer lock needed)
+  // Pointer lock still needs a click — the canvas click handler keeps working.
+  (function deepLink() {
+    var h = (window.location.hash || '').replace(/^#/, '');
+    if (!h) return;
+    var params = {};
+    h.split('&').forEach(function (kv) {
+      var p = kv.split('=');
+      params[p[0]] = p.length > 1 ? p[1] : true;
+    });
+    var target = params.at || (/^r\d+$/.test(h) ? h : null);
+    if (target && roomById[target]) {
+      var pos = roomById[target].dome.position;
+      camera.position.set(pos.x, EYE, pos.z + 13);
+      yaw = Math.atan2(-(pos.x - camera.position.x), -(pos.z - camera.position.z));
+      pitch = -0.08;
+    }
+    if (params.walk && autoWalk) { auto.on = true; auto.idx = nearestRoomIndex(); }
+    if (params.enter || params.walk || target) overlay.style.display = 'none';
+  })();
 
   animate();
 })();
