@@ -141,6 +141,17 @@
       band,
     };
 
+    // The candor line's verdict, pinned under it: the first real run's
+    // three survey stakes. Shape IS the signature: a shear bends and
+    // holds, a re-twist curls back on itself, a flat reads as a dash.
+    const candorRuns = (data.candorRun && data.candorRun.runs || []).map((r, i) => ({
+      corpus: r.corpus, labeled: r.labeled, signature: r.signature,
+      flatness: r.flatness, reTwist: r.reTwist, response: r.response,
+      meaning: r.meaning,
+      x: margin + (W - 2 * margin) * ((i + 0.5) / 3) * 0.5,   // left half of the sky
+      y: H * 0.335,
+    }));
+
     // The Choir: seven bells on the horizon, one per commensuration tooth.
     const choir = data.choir.teeth.map((t, i) => ({
       n: t.n, degrees: t.degrees,
@@ -148,7 +159,7 @@
       y: horizonY - H * 0.008,
     }));
 
-    return { W, H, horizonY, margin, stars, candor, candorBaseY: candorY, ridges, lattice, whirlpools, understory, choir };
+    return { W, H, horizonY, margin, stars, candor, candorBaseY: candorY, candorRuns, ridges, lattice, whirlpools, understory, choir };
   }
 
   // ── Render (browser only) ──────────────────────────────────────────────
@@ -196,6 +207,43 @@
     ctx.font = '10px ui-monospace, monospace';
     ctx.textAlign = 'left';
     ctx.fillText('candor line — one week of a live room through the twist instrument', L.candor[0].x, L.candor[0].y - 10);
+
+    // the verdict triptych — the first real run, three stakes under the line.
+    // SYNTHETIC stakes render dim: a labeled fixture is a first-class
+    // citizen here, not an apology — but it does not glow like matter.
+    for (const r of L.candorRuns) {
+      const real = r.labeled === 'REAL';
+      ctx.strokeStyle = PALETTE.candor;
+      ctx.globalAlpha = real ? 0.9 : 0.4;
+      ctx.lineWidth = real ? 1.8 : 1.2;
+      ctx.beginPath();
+      if (r.signature === 'shear') {
+        ctx.moveTo(r.x - 14, r.y); ctx.lineTo(r.x - 4, r.y);
+        ctx.lineTo(r.x + 3, r.y - 9); ctx.lineTo(r.x + 9, r.y - 4); ctx.lineTo(r.x + 14, r.y);
+      } else if (r.signature === 're-twist') {
+        for (let a = 0; a <= 24; a++) {
+          const th = a / 24 * Math.PI * 2.3;
+          const rr = 3 + a / 24 * 9;
+          const px = r.x + rr * Math.cos(th), py = r.y + rr * Math.sin(th);
+          a ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+        }
+      } else { // flat — nothing moved
+        ctx.moveTo(r.x - 12, r.y); ctx.lineTo(r.x + 12, r.y);
+      }
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+      ctx.textAlign = 'center';
+      ctx.fillStyle = real ? PALETTE.horizonSoft : PALETTE.text;
+      ctx.font = '10px ui-monospace, monospace';
+      const metric = r.signature === 'flat' ? `flatness ${r.flatness.toFixed(2)}` :
+                     r.signature === 're-twist' ? `re-twist ${r.reTwist.toFixed(2)}` :
+                     `response ${r.response.split(' ')[0]}`;
+      ctx.fillText(`${r.corpus} · ${r.signature} · ${metric}`, r.x, r.y + 22);
+      ctx.globalAlpha = 0.55;
+      ctx.fillText(r.labeled, r.x, r.y + 34);
+      ctx.globalAlpha = 1;
+    }
+    ctx.textAlign = 'left';
 
     // water
     const sea = ctx.createLinearGradient(0, L.horizonY, 0, H);
@@ -339,6 +387,7 @@
       whirlpools: await load('whirlpools.json'),
       sky: await load('sky.json'),
       choir: await load('choir.json'),
+      candorRun: await load('candor-run.json'),
     };
     let L = null;
     const fit = () => {
