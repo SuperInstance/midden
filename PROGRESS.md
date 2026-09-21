@@ -79,3 +79,23 @@ NEXT: README + provenance docs, push, PR.
       data/PROVENANCE.md world/world.json entry (MIXED, method disclosed);
       world/screenshot.png committed.
 NEXT: push -u origin, open PR.
+## DONE — final state
+
+- **PR:** https://github.com/SuperInstance/midden/pull/5 (OPEN, base main,
+  head lane-ai-midden-worldmodel; master never touched, no pushes to main)
+- **Tests:** 37 pass / 0 fail (`npm test`) = 22 pre-existing + 15 new in
+  `test/smoke.mjs`
+- **Data split:** rooms r0–r7 + 7 ancestry segments + the HONEST GAP tag =
+  REAL (data/lineage.json via vendored gesture-kit, smoke-tested live);
+  rooms r8–r11 + their segments + `what-comes-next` walk = SYNTHETIC
+  (deterministic damped-slope continuation, method disclosed in the JSON,
+  on each room card, and in data/PROVENANCE.md); landmarks copied verbatim
+  from the other data/ fixtures. Nothing synthetic carries a verdict.
+- **World:** `world/index.html` — 12 bioluminescent cells on an abyssal floor,
+  mint trails, ember gap room r7 under a light pillar, ledger ridges / choir
+  teeth / Drown voids / canon stars around it. Opens from file:// (classic
+  scripts, vendored three r147 UMD, inlined window.WORLD, zero fetches).
+- **Verified:** headless Chrome over file:// — zero console errors; intro,
+  gap-room, r0, and autopilot views screenshot-checked (one real crash found
+  and fixed during that pass).
+- Commits: 9402eaf → f010c14 → 4af1fdf → 06005b6 (+ this one).
