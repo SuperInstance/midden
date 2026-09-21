@@ -151,7 +151,7 @@
   scene.add(grid);
 
   // marine snow — the abyss is never empty: a sparse static dust field that
-  // makes motion readable while you walk. 3000 motes, no updates per frame.
+  // makes motion readable while you walk. 14k motes, no updates per frame.
   // Seeded LCG, not Math.random — the same every load, like the rest of the map.
   (function marineSnow() {
     var seed = 0x445185a3;                       // the canon hash's high bits

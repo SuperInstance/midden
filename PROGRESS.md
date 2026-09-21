@@ -74,3 +74,8 @@ NEXT: smoke test, then browser-level check if a headless browser exists.
 - [t8] test/smoke.mjs: 15 checks, all pass. Full suite `npm test`: 37 pass
       (22 pre-existing + 15 new), 0 fail.
 NEXT: README + provenance docs, push, PR.
+- [t9] Docs: README "The walkable world" section (run instructions, real vs
+      SYNTHETIC split, controls, deep links, regenerate command);
+      data/PROVENANCE.md world/world.json entry (MIXED, method disclosed);
+      world/screenshot.png committed.
+NEXT: push -u origin, open PR.

@@ -31,6 +31,50 @@ python3 -m http.server 8000     # or any static file server
 Click a **whirlpool** to open its real issue. Click an **understory node** to
 replay the walk the room threw away, round by round.
 
+## The walkable world
+
+The dusk scene above is a picture of the midden. `world/` is the midden you
+can stand in — the first walkable world model in the fleet, built from the
+same lineage data. It opens straight from disk, no server:
+
+```
+xdg-open world/index.html        # plain file:// — no modules, no fetch()
+```
+
+Twelve glowing cells on an abyssal floor. Each cell is one round of the
+rescued ℚ¹⁶ walk, laid out by a deterministic PCA of the REAL 8×16 matrix at
+uniform scale — the floor keeps the walk's own shape, so the geography *is*
+the gesture. The trails between cells are the walk's real ancestry edges,
+lit like bioluminescent trails with plankton along them. The verdict room
+**r7** pulses ember under a light pillar you can navigate by; every other
+room is deep-blue bioluminescence; SYNTHETIC rooms wear broken rings and a
+colder tint. When you walk into a room, its card prints what the vendored
+third-order instrument measured there — arc, bend, torsion, planarity, σ —
+and where the number came from.
+
+Around the floor, the midden's other real fixtures: the nine the-tap ledger
+ridges on the horizon, the seven choir teeth, the four Drown voids (each
+carrying its live issue id), and sixteen stars fixed at the canon hash.
+WASD/arrows to walk, shift to run, **F** to follow the whole trail on its
+own, **L** labels, **H** hint. Deep links: `#r7` stands you in front of the
+gap room; `#walk=1` starts the tour.
+
+![the gap room, up close](world/screenshot.png)
+
+The honest part: rooms **r0–r7 are REAL** (the q16 walk, verified against the
+vendored instrument by `test/smoke.mjs`). The real walk *ends* at the gap, so
+rooms **r8–r11 are SYNTHETIC** — a deterministic damped-slope continuation
+past the end of the real data, labeled `SYNTHETIC` on every room, segment and
+walk it touches, with its method printed on the room card. Nothing synthetic
+is ever tagged as a verdict; the ember tag exists only on r7. Synthetic rooms
+also carry their true PCA position in `projected` — the walkable layout
+chains them 14 units apart along their own direction of travel, because the
+damped continuation converges and would otherwise overlap.
+
+Regenerate the world data: `node tools/gen-world.mjs` (writes
+`world/world.json` and `world/world-data.js`, the inlined `window.WORLD`
+build that lets the page run from `file://`).
+
 ## What you are looking at
 
 ![the midden at dusk](screenshot.png)

@@ -4,6 +4,20 @@ Honesty doctrine: every data file below is either REAL fleet output captured at
 authoring time (with repo + ref cited), or explicitly marked illustrative.
 Nothing else.
 
+## world/world.json — MIXED: REAL rooms + labeled SYNTHETIC extension
+Produced by `tools/gen-world.mjs` for the walkable world model
+(`world/index.html`). Rooms r0–r7 and all their readouts are **REAL**:
+`data/lineage.json` fed verbatim through the vendored gesture-kit, and
+`test/smoke.mjs` recomputes them live from `data/lineage.json` to prove no
+drift. Rooms **r8–r11 are SYNTHETIC**: the real walk ends at the gap round,
+and the world extends past it by deterministic arithmetic on the real last
+four rounds (damped per-feature least-squares slope, decay 0.85/step, clamped
+to the walk's own ℚ-range) — documented in the JSON as
+`provenance.syntheticMethod` and printed on each synthetic room card in the
+world. No new fleet output is claimed; no synthetic room carries a verdict
+tag; the HONEST GAP tag exists only on r7. The `landmarks` block is copied
+verbatim from the other `data/` fixtures (terrain, whirlpools, choir, sky).
+
 ## terrain.json — REAL
 Produced by running the **real** `extractValuesLedger` from
 `SuperInstance/the-tap`, branch `lane-l-commune-deep` @ `42f878e`
