@@ -13,9 +13,14 @@
       "hashAlgorithm": "sha256",
       "files": [
         {
-          "path": "data/terrain.json",
-          "sha256": "e029cfbbf8b2d9b894f8104fb4fd331b21ec35bf1ead3c2b9b329f1bf312acd1",
-          "bytes": 15000
+          "path": "data/candor-run.json",
+          "sha256": "a054e74f448035de07983801da176e83a71e5f3ce317d8953c348a69c375709b",
+          "bytes": 1509
+        },
+        {
+          "path": "data/choir.json",
+          "sha256": "cd7ba7a2396430483ccdc3cf5c77ea4d3fdcd9a22e36ab3fe9799f1a93f287c1",
+          "bytes": 1224
         },
         {
           "path": "data/lineage.json",
@@ -23,19 +28,19 @@
           "bytes": 5326
         },
         {
-          "path": "data/whirlpools.json",
-          "sha256": "64e2b0b1df40a41b52ed50b258dd20dd8f0fbe3fbbbc8a0c4011f1c139235113",
-          "bytes": 1655
-        },
-        {
           "path": "data/sky.json",
           "sha256": "3cae9b331c70da8e895a2d45c74afea20cc30c0bb6197eb9ab91ab66e5fd7583",
           "bytes": 463
         },
         {
-          "path": "data/choir.json",
-          "sha256": "a26b6f58a2e13f047fde02684f06882cdc62e0f3a95b7349ea40d6ca4ef9037f",
-          "bytes": 876
+          "path": "data/terrain.json",
+          "sha256": "e029cfbbf8b2d9b894f8104fb4fd331b21ec35bf1ead3c2b9b329f1bf312acd1",
+          "bytes": 15000
+        },
+        {
+          "path": "data/whirlpools.json",
+          "sha256": "64e2b0b1df40a41b52ed50b258dd20dd8f0fbe3fbbbc8a0c4011f1c139235113",
+          "bytes": 1655
         }
       ]
     }
@@ -648,37 +653,37 @@
           {
             "index": 0,
             "n": 2,
-            "degrees": 137.50776405003785
+            "degrees": 0.75
           },
           {
             "index": 1,
             "n": 3,
-            "degrees": -42.49223594996215
+            "degrees": 1.5
           },
           {
             "index": 2,
             "n": 4,
-            "degrees": 17.50776405003785
+            "degrees": 2.25
           },
           {
             "index": 3,
             "n": 5,
-            "degrees": -6.492235949962151
+            "degrees": 3
           },
           {
             "index": 4,
             "n": 6,
-            "degrees": 2.5077640500378493
+            "degrees": 3.75
           },
           {
             "index": 5,
             "n": 7,
-            "degrees": -0.9537744115006035
+            "degrees": 4.5
           },
           {
             "index": 6,
             "n": 8,
-            "degrees": 0.3649069071807389
+            "degrees": 5.25
           }
         ],
         "unplayableStrata": 1,
@@ -907,6 +912,12 @@
         "repo": "SuperInstance/quilt-studio",
         "ref": "packages/quilt-floor/src/golden.mjs convergentGaps(8) @ 5821ebf0b4c30d45559a076a97aa76a8693d6f32",
         "note": "exact code output, not the dream's ~0.75° approximation"
+      },
+      {
+        "fixture": "data/candor-run.json",
+        "repo": "SuperInstance/candor",
+        "ref": "e4a85f30",
+        "note": "candor v0 first real run acceptance record — see data/PROVENANCE.md §candor-run.json"
       }
     ],
     "gaps": [

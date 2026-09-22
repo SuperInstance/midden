@@ -63,7 +63,7 @@ test('the validator is not decorative — it rejects a broken room', () => {
 
 test('room.fixtures hashes + byte sizes match the files on disk', () => {
   assert.strictEqual(room.room.fixtures.hashAlgorithm, 'sha256');
-  assert.strictEqual(room.room.fixtures.files.length, 5);
+  assert.strictEqual(room.room.fixtures.files.length, 6);
   for (const f of room.room.fixtures.files) {
     const buf = readFileSync(join(root, f.path));
     assert.strictEqual(f.sha256, createHash('sha256').update(buf).digest('hex'), f.path + ' sha256 mismatch');
@@ -74,7 +74,7 @@ test('room.fixtures hashes + byte sizes match the files on disk', () => {
 test('provenance.sources covers every fixture file in data/', () => {
   const onDisk = readdirSync(join(root, 'data')).filter((f) => f.endsWith('.json'));
   const covered = new Set(room.provenance.sources.map((s) => s.fixture));
-  assert.strictEqual(onDisk.length, 5);
+  assert.strictEqual(onDisk.length, 6);
   for (const f of onDisk) assert.ok(covered.has('data/' + f), f + ' missing from provenance.sources');
 });
 
