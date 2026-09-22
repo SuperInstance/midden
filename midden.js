@@ -306,11 +306,15 @@
     }
     ctx.globalAlpha = 1;
 
-    // choir bells on the horizon
+    // choir bells on the horizon — seven bells inside one slow revival.
+    // The retuned comb's teeth ring at exact rational angles (3(n−1)/4°,
+    // n = 2..8 — data/PROVENANCE.md); the shared envelope is the
+    // supercell's slow beat, the Moot the physicist promised.
+    const revival = 0.5 + 0.5 * Math.sin(t * 0.00012);
     for (const b of L.choir) {
       const ring = 0.5 + 0.5 * Math.sin(t * 0.001 + b.n);
       ctx.fillStyle = PALETTE.filament;
-      ctx.globalAlpha = 0.35 + ring * 0.4;
+      ctx.globalAlpha = 0.25 + revival * 0.2 + ring * 0.35;
       ctx.beginPath(); ctx.arc(b.x, b.y, 3 + ring * 1.5, 0, Math.PI * 2); ctx.fill();
       ctx.globalAlpha = 1;
     }

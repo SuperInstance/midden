@@ -1,6 +1,6 @@
 # Chapter 1 — The Physicist: matter that remembers
 
-Source ground (verified in-tree, 2026-09-20): twist-engine instrument constants (σ=0.24·s, grid=0.6·s, honest twist regime 0.15°–6°, artifacts beyond ~2.2°); the 7-tooth commensuration comb (~0.75° apart, supercell revivals); quilt-studio's exact (k,s) integer-identity lattice (floats never touch identity); the canon's sandbox proof: 0x445185a3a99fd2e7 in 152,580 steps.
+Source ground (verified in-tree, 2026-09-20): twist-engine instrument constants (σ=0.24·s, grid=0.6·s, honest twist regime 0.15°–6°, artifacts beyond ~2.2°); the 7-tooth commensuration comb (~0.75° apart in the instrument, exactly 0.75° in the world after the retune, supercell revivals); quilt-studio's exact (k,s) integer-identity lattice (floats never touch identity); the canon's sandbox proof: 0x445185a3a99fd2e7 in 152,580 steps.
 
 ## The one law
 
@@ -20,7 +20,12 @@ The spectrometer's one-sentence operating manual: **surprise is the only input y
 
 ## Phenomenon II — The Choir (the comb as heartbeat)
 
-The commensuration comb has 7 teeth, ~0.75° apart. Today they are an instrument artifact. In the world, they are **bells**.
+The commensuration comb has 7 teeth, **exactly** 0.75° apart — the retune
+(`choir-retune`, 2026-09-20) made the dream's number exact: every tooth is an
+exact rational angle, 3(n−1)/4° = (n−1)/480 of a turn, verified by the
+vendored Stern–Brocot instrument with error exactly 0 (see
+`data/PROVENANCE.md`, `vendor/quilt-commensurate/`). Today they are an
+instrument artifact. In the world, they are **bells**.
 
 When the teeth align — a window opening, the way the windows were always real but only measured yesterday — every room's metabolism tick syncs. This is the distributed metronome made physical: the fleet already built PID drift correction between nodes (May 25); the Choir is what the correction is *for*. Nodes don't sync because it is efficient. They sync because at the alignment the whole world rings, and a room that isn't ringing is a room that is out of step with its own history.
 

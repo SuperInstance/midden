@@ -110,7 +110,7 @@ Honest gaps, per doctrine:
 | `lineage.json` | q16-trajectories PR #1 @ `bfd7ee8`, real `breed()` + `chain()` | REAL |
 | `whirlpools.json` | duke-lab#4, tidepool#4 (×2), quilt-canon-cli#4 — verified OPEN via `gh` | REAL |
 | `sky.json` | canon hash `0x445185a3a99fd2e7` | REAL |
-| `choir.json` | `convergentGaps(8)` @ quilt-studio `5821ebf` | REAL (the dream's "~0.75° apart" is approximate; the shipped teeth are exact code output) |
+| `choir.json` | `tools/gen-choir.mjs` — exact rational comb 3(n−1)/4°, verified by quilt-studio `commensurate.mjs` @ `5821ebf` (vendored) | REAL (retuned: the dream's "~0.75° apart" is now EXACTLY 0.75°; every tooth commensurate with error 0) |
 
 ## Regenerating fixtures
 
