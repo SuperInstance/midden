@@ -3,10 +3,20 @@
 > A world whose physics is memory, whose graves are geography, whose organism
 > is a network, whose honesty has a measurable signature.
 
+**Start here, by audience:**
+
+| You are a… | Read this first |
+|---|---|
+| first-time visitor | [docs/FOR-BEGINNERS.md](docs/FOR-BEGINNERS.md) — what this is, how to open it, what to click |
+| engineer | [docs/FOR-ENGINEERS.md](docs/FOR-ENGINEERS.md) — architecture, invariants, extension points |
+| CTO / evaluator | [docs/FOR-CTOS.md](docs/FOR-CTOS.md) — what the repo demonstrates, cost, risk posture |
+
 The midden is the archaeological heap of everything the fleet held onto —
 achieved/ ledgers, WALs, lineage, the canon. This repo is the heap given
 coordinates: **one static dusk scene rendered from REAL fleet artifacts that
-exist today.** Not a game. A place. One honest build.
+exist today.** Not a game. A place. One honest build. The dream chapters in
+`docs/` are the world-building underneath it all; the pages above are the
+doors in.
 
 Dreamed 2026-09-20 by kimi1 + the dream circle. Read the dream first:
 
@@ -127,7 +137,7 @@ Honest gaps, per doctrine:
 npm test    # node --test, no DOM, no deps
 ```
 
-22 checks: every fixture parses and is provenance-covered; the ledger law
+60 checks: every fixture parses and is provenance-covered; the ledger law
 (grounded or absent — every ridge cites real transcript lines); ridge heights
 monotonic in strength; citation paths summit→turn; whirlpool coordinates match
 the real issue list; stars = 16 canon digits; the lattice is an integer grid;
@@ -135,7 +145,10 @@ the choir rings 7 bells; the understory carries an 8-round HONEST GAP walk;
 the candor line's strain concentrates and recovers; the gesture panel's
 per-round readouts are cumulative, deterministic, match the vendored
 instrument computed independently, and the r7 planarity corroboration is
-measured, not asserted (docs/GESTURE-NOTES.md).
+measured, not asserted (docs/GESTURE-NOTES.md); plus the room protocol suite:
+schema validation (with a tamper-rejection proof), fixture hash-pins,
+surface-to-fixture trace, naming law, and honesty labels
+(`tests/room-protocol.test.js`).
 
 ## Doctrine
 
